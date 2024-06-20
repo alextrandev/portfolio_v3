@@ -23,8 +23,8 @@ const testimonialData = [
   },
 ];
 
-const TestimonialSlider = () => {
-  return <div>Testimonial Slider</div>;
-};
-
-export default TestimonialSlider;
+export default function TestimonialSlider() {
+  return (
+    <div>TestimonialSlider</div>
+  )
+}

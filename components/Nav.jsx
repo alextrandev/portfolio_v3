@@ -26,8 +26,8 @@ export const navData = [
   },
 ];
 
-const Nav = () => {
-  return <nav>nav</nav>;
-};
-
-export default Nav;
+export default function Nav() {
+  return (
+    <div>Nav</div>
+  )
+}

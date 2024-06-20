@@ -88,8 +88,8 @@ const aboutData = [
   },
 ];
 
-const About = () => {
-  return <div>About</div>;
-};
-
-export default About;
+export default function index() {
+  return (
+    <div>index</div>
+  )
+}
