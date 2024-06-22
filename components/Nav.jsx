@@ -1,4 +1,6 @@
 // icons
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import {
   HiHome,
   HiUser,
@@ -27,6 +29,8 @@ export const navData = [
 ];
 
 export default function Nav() {
+  const router = useRouter();
+  const pathname = router.pathname;
   return (
     <nav
       className="
@@ -48,6 +52,7 @@ export default function Nav() {
           <Link
             key={`${index}_${link.name}`}
             href={link.path}
+            className={link.path === pathname && 'text-accent'}
           >
             <div>{link.icon}</div>
           </Link>
