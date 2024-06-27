@@ -1,6 +1,6 @@
-// icons
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+// icons import
 import {
   HiHome,
   HiUser,
@@ -10,7 +10,7 @@ import {
   HiEnvelope,
 } from 'react-icons/hi2';
 
-// nav data
+// nav data and icons
 export const navData = [
   { name: 'home', path: '/', icon: <HiHome /> },
   { name: 'about', path: '/about', icon: <HiUser /> },
@@ -31,6 +31,7 @@ export const navData = [
 export default function Nav() {
   const router = useRouter();
   const pathname = router.pathname;
+
   return (
     <nav
       className="
@@ -39,7 +40,7 @@ export default function Nav() {
         xl:justify-center xl:right-[2%] xl:w-16 xl:max-w-md xl:h-screen
       "
     >
-      { }
+      {/* nav container */}
       <div
         className="
           flex w-full items-center justify-between h-[80px]
@@ -48,12 +49,29 @@ export default function Nav() {
           xl:px-0 xl:h-max md:px-40 
         "
       >
+        {/* nav items/links mapping */}
         {navData.map((link, index) => (
           <Link
             key={`${index}_${link.name}`}
             href={link.path}
-            className={link.path === pathname && 'text-accent'}
+            // so that link icon will change color based on active and hover
+            className={
+              `${link.path === pathname && 'text-accent'} 
+                relative flex items-center group
+                hover:text-accent transition-all duration-250
+              `
+            }
           >
+            {/* hover tooltips */}
+            <div className='absolute pr-14 right-0 hidden xl:group-hover:flex'>
+              <div className='bg-white/80 relative flex text-primary items-center p-1.5 rounded'>
+                <div className='text-xs leading-none font-semibold capitalize'>
+                  {link.name}
+                </div>
+              </div>
+            </div>
+
+            {/* nav icons */}
             <div>{link.icon}</div>
           </Link>
         ))}
