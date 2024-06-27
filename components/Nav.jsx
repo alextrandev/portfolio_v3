@@ -30,7 +30,7 @@ export const navData = [
 
 export default function Nav() {
   const router = useRouter();
-  const pathname = router.pathname;
+  const pathName = router.pathname;
 
   return (
     <nav
@@ -56,7 +56,7 @@ export default function Nav() {
             href={link.path}
             // so that link icon will change color based on active and hover
             className={
-              `${link.path === pathname && 'text-accent'} 
+              `${link.path === pathName && 'text-accent'} 
                 relative flex items-center group
                 hover:text-accent transition-all duration-250
               `
@@ -68,6 +68,8 @@ export default function Nav() {
                 <div className='text-xs leading-none font-semibold capitalize'>
                   {link.name}
                 </div>
+                {/* decorative triangle */}
+                <div className='border-solid border-l-8 border-y-transparent border-y-[6px] border-r-0 absolute -right-2.5'></div>
               </div>
             </div>
 
