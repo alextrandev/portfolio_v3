@@ -1,4 +1,6 @@
 import ProjectsBtn from '../components/ProjectsBtn';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../variants';
 
 export default function index() {
   return (
@@ -8,21 +10,43 @@ export default function index() {
         {/* hero banner text container */}
         <div className="text-center flex flex-col justify-center h-full container mx-auto xl:pt-40 xl:text-left">
           {/* hero title */}
-          <h1 className="h2">
+          <motion.h1
+            variants={fadeIn('down', 0.2)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="h2"
+          >
             Hello world! I'm
             <span className="text-accent"> Alex Tran</span>
             <div>
               Full-stack web developer
             </div>
-          </h1>
+          </motion.h1>
           {/* short introduction */}
-          <p className="max-w-sm mx-auto mb-10 xl:max-w-xl xl:mx-0 xl:mb-16">
+          <motion.p
+            variants={fadeIn('down', 0.3)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="max-w-sm mx-auto mb-10 xl:max-w-xl xl:mx-0 xl:mb-16"
+          >
             I have 2 years experience with CMS and Front-end dev. I am currently working on React, Next.js, Symfony and Drupal
-          </p>
-          {/* button */}
+          </motion.p>
+          {/* button for mobile screen */}
           <div className='flex justify-center xl:hidden relative'>
             <ProjectsBtn />
           </div>
+          {/* button for desktop screen with animation */}
+          <motion.div
+            variants={fadeIn('down', 0.4)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className='hidden xl:flex'
+          >
+            <ProjectsBtn />
+          </motion.div>
         </div>
       </div>
       {/* image */}
