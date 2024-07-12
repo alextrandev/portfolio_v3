@@ -1,7 +1,7 @@
 import ProjectsBtn from '../components/ProjectsBtn';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
-import CardLeft from '../components/CardLeft';
+import Avatar from '../components/Avatar';
 
 export default function index() {
   return (
@@ -18,11 +18,9 @@ export default function index() {
             exit="hidden"
             className="h2"
           >
-            Hello world! I'm
-            <span className="text-accent"> Alex Tran</span>
-            <div>
-              Full-stack web developer
-            </div>
+            <div>Hello world!</div>
+            <div>I'm<span className="text-accent"> Alex Tran</span></div>
+            <div>Web developer</div>
           </motion.h1>
           {/* short introduction */}
           <motion.p
@@ -32,7 +30,8 @@ export default function index() {
             exit="hidden"
             className="max-w-sm mx-auto mb-10 xl:max-w-xl xl:mx-0 xl:mb-16"
           >
-            I have 2 years experience with CMS and Front-end dev. I am currently working on React, Next.js, Symfony and Drupal
+            I have 2 years experience with CMS and Front-end dev<br />
+            I am currently working on React, Next.js, Symfony and Drupal
           </motion.p>
           {/* button for mobile screen */}
           <div className='flex justify-center xl:hidden relative'>
@@ -56,7 +55,11 @@ export default function index() {
         <div className='bg-none xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full absolute mix-blend-color-dodge translate-z-0'>
         </div>
         {/* particles */}
+        <div>Particles</div>
         {/* avatar img */}
+        <div className='w-full h-full max-w-[737px] max-h-[678px] absolute -bottom-32 lg:bottom-[-4rem] lg:scale-[82%] lg:right-[4%]'>
+          <Avatar />
+        </div>
       </div>
     </div >
   )
