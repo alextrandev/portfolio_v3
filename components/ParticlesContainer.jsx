@@ -47,7 +47,7 @@ export default function ParticlesContainer() {
       },
       particles: {
         color: {
-          value: '#e68e2e',
+          value: '#f0bf65',
         },
         links: {
           color: '#f5d393',
@@ -74,10 +74,10 @@ export default function ParticlesContainer() {
             enable: true,
             area: 800
           },
-          value: 100
+          value: 80
         },
         opacity: {
-          value: 0.5,
+          value: 0.7,
         },
         shape: {
           type: 'circle'
