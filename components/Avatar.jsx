@@ -8,7 +8,7 @@ export default function Avatar() {
         width={737}
         height={678}
         alt="Avatar image"
-        className="translate-z-0 w-full h-full"
+        className="translate-z-0 w-full h-full brightness-75 contrast-150"
       />
 
     </div>
