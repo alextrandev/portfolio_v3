@@ -50,7 +50,7 @@ export default function Socials() {
 
 // single social icon link to reuse above
 export function Social({ url, Icon, attr, toolTip }) {
-  console.log(toolTip);
+  // console.log(toolTip);
   return (
     <Link href={url} target='blank' className={`hover:text-accent transition-all duration-300 p-2 group relative ${attr && attr}`}>
       <Icon />
