@@ -27,7 +27,7 @@ const aboutData = [
     title: 'skills',
     info: [
       {
-        title: 'Web Development',
+        title: 'Javascript Stack',
         icons: [
           <FaHtml5 />,
           <FaCss3 />,
@@ -39,13 +39,21 @@ const aboutData = [
         ],
       },
       {
-        title: 'UI/UX Design',
+        title: 'PHP Stack',
+        icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+      },
+      {
+        title: 'DevOps',
+        icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+      },
+      {
+        title: 'Web design',
         icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
       },
     ],
   },
   {
-    title: 'awards',
+    title: 'education',
     info: [
       {
         title: 'Webby Awards - Honoree',
@@ -75,19 +83,15 @@ const aboutData = [
     ],
   },
   {
-    title: 'credentials',
+    title: 'awards',
     info: [
       {
-        title: 'Web Development - ABC University, LA, CA',
-        stage: '2011',
+        title: 'Webby Awards - Honoree',
+        stage: '2011 - 2012',
       },
       {
-        title: 'Computer Science Diploma - AV Technical Institute',
-        stage: '2009',
-      },
-      {
-        title: 'Certified Graphic Designer - ABC Institute, Los Angeles, CA',
-        stage: '2006',
+        title: 'Adobe Design Achievement Awards - Finalist',
+        stage: '2009 - 2010',
       },
     ],
   },
@@ -112,7 +116,20 @@ export default function About() {
       </motion.div>
       <div className='container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6'>
         <div>text</div>
-        <div>about</div>
+        <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
+          {aboutData.map((item, itemIndex) =>
+            <div
+              key={`${itemIndex}_${item.title}`}
+              className={
+                `${index == itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} 
+                cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:bottom-1 after:left-0`
+              }
+              onClick={() => setIndex(itemIndex)}
+            >
+              {item.title}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
