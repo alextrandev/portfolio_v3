@@ -1,5 +1,7 @@
 import Circles from '../../components/Circles';
 import { useState } from "react";
+import Avatar from '../../components/Avatar';
+import { motion } from 'framer-motion';
 
 // icons
 import {
@@ -16,6 +18,7 @@ import {
   SiAdobexd,
   SiAdobephotoshop,
 } from "react-icons/si";
+import { fadeIn } from '../../variants';
 
 
 //  data
@@ -94,6 +97,23 @@ export default function About() {
   const [index, setIndex] = useState(0);
 
   return (
-    <div><Circles /></div>
+    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+      {/* decoration circle */}
+      <Circles />
+      {/* decoration avatar */}
+      <motion.div
+        variants={fadeIn('right', 0.2)}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+        className='hidden xl:flex absolute bottom-0 -left-[370px]'
+      >
+        <Avatar />
+      </motion.div>
+      <div className='container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6'>
+        <div>text</div>
+        <div>about</div>
+      </div>
+    </div>
   )
 }
