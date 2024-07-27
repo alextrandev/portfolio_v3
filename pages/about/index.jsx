@@ -1,3 +1,6 @@
+import Circles from '../../components/Circles';
+import { useState } from "react";
+
 // icons
 import {
   FaHtml5,
@@ -7,7 +10,6 @@ import {
   FaWordpress,
   FaFigma,
 } from "react-icons/fa";
-
 import {
   SiNextdotjs,
   SiFramer,
@@ -88,8 +90,10 @@ const aboutData = [
   },
 ];
 
-export default function index() {
+export default function About() {
+  const [index, setIndex] = useState(0);
+
   return (
-    <div>index</div>
+    <div><Circles /></div>
   )
 }
