@@ -15,7 +15,7 @@ export default function Header() {
               height={65}
               alt="Site logo"
               priority={true}
-              className="max-sm:w-10"
+              className="max-sm:w-10 pointer-events-none select-none"
             />
             <div className="hidden xl:flex xl:flex-col max-sm:flex max-sm:flex-row max-sm:gap-2 group-hover:text-accent transition-all duration-300">
               <h1 className="h2 text-xl p-0 -mb-2">Alex Tran</h1>

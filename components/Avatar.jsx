@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Avatar() {
   return (
-    <div className="hidden xl:flex xl:max-w-none">
+    <div className="hidden xl:flex xl:max-w-none pointer-events-none select-none">
       <Image
         src={'/avatar.png'}
         width={737}
