@@ -24,7 +24,7 @@ export default function About() {
       </motion.div>
       <div className='container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6'>
         <div className='flex-1 flex flex-col justify-center'>text</div>
-        <div className='flex flex-col w-full xl:max-w-[48%] h-[480px]'>
+        <div className='flex flex-col w-full xl:max-w-[48%] h-[380px]'>
           <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
             {/* section navigation bar */}
             {aboutData.map((item, itemIndex) =>
@@ -48,11 +48,12 @@ export default function About() {
                 className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60"
               >
                 {/* section title */}
-                <p className="font-light mb-2 md:mb-0">{item.title}</p>
+                <p className="font-light">{item.title}</p>
+                <p className="font-bold">{item.bold}</p>
                 {/* next line is a seperation dash, only for bigger devices */}
                 <div className='hidden md:flex'>-</div>
                 {/* section text / icons */}
-                <p>{item.stage}</p>
+                <p>{item.year}</p>
                 <div className="flex gap-x-4">
                   {/* icons */}
                   {item.icons?.map((icon, itemIndex) =>
