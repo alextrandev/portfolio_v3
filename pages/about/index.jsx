@@ -27,7 +27,7 @@ const aboutData = [
     title: 'skills',
     info: [
       {
-        title: 'Javascript Stack',
+        title: 'Programming languages',
         icons: [
           <FaHtml5 />,
           <FaCss3 />,
@@ -39,7 +39,19 @@ const aboutData = [
         ],
       },
       {
-        title: 'PHP Stack',
+        title: 'Libraries & frameworks',
+        icons: [
+          <FaHtml5 />,
+          <FaCss3 />,
+          <FaJs />,
+          <FaReact />,
+          <SiNextdotjs />,
+          <SiFramer />,
+          <FaWordpress />,
+        ],
+      },
+      {
+        title: 'Front End',
         icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
       },
       {
@@ -137,11 +149,22 @@ export default function About() {
             {aboutData[index].info.map((item, itemIndex) =>
               <div
                 key={`${itemIndex}_${item.title}`}
+                className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60"
               >
                 {/* section title */}
-                <p>{item.title}</p>
-                {/* section main */}
-                {/* <div className='hidden md-flex'>-</div> */}
+                <p className="font-light mb-2 md:mb-0">{item.title}</p>
+                {/* next line is a seperation dash, only for bigger devices */}
+                <div className='hidden md:flex'>-</div>
+                {/* section text / icons */}
+                <p>{item.stage}</p>
+                <div className="flex gap-x-4">
+                  {/* icons */}
+                  {item.icons?.map((icon, itemIndex) =>
+                    <i key={itemIndex} className="text-2xl text-white">
+                      {icon}
+                    </i>
+                  )}
+                </div>
               </div>
             )}
           </div>
