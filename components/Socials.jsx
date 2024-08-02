@@ -52,8 +52,8 @@ export default function Socials() {
 export function Social({ url, Icon, attr, toolTip }) {
   // console.log(toolTip);
   return (
-    <Link href={url} target='blank' className={`hover:text-accent transition-all duration-300 p-2 group relative ${attr && attr}`}>
-      <Icon />
+    <Link href={url} target='blank' className={`p-2 group relative ${attr && attr}`}>
+      <Icon className="group-hover:text-accent group-hover:scale-125 transition-all duration-300" />
       {/* hover tooltips */}
       <div className='absolute top-full mt-2 left-1/2 -translate-x-1/2 hidden xl:group-hover:flex'>
         <div className='bg-white opacity-0.5 relative flex text-primary items-center p-1.5 rounded'>

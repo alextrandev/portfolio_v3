@@ -58,13 +58,12 @@ export default function Nav() {
             className={
               `${link.path === pathName && 'text-accent'} 
                 relative p-5 flex items-center group
-                hover:text-accent transition-all duration-250
               `
             }
           >
             {/* hover tooltips */}
             <div className='absolute pr-14 right-0 hidden xl:group-hover:flex'>
-              <div className='bg-white/80 relative flex text-primary items-center p-1.5 rounded'>
+              <div className='bg-white relative flex text-primary items-center p-1.5 rounded'>
                 <div className='text-xs leading-none font-semibold capitalize'>
                   {link.name}
                 </div>
@@ -74,7 +73,7 @@ export default function Nav() {
             </div>
 
             {/* nav icons */}
-            <div>{link.icon}</div>
+            <div className='group-hover:scale-150 group-hover:text-accent transition-all duration-250'>{link.icon}</div>
           </Link>
         ))}
       </div>
