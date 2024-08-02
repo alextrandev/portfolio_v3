@@ -31,8 +31,15 @@ export default function About() {
               <a
                 key={`${itemIndex}_${item.title}`}
                 className={
-                  `${index == itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} 
-                cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:bottom-1 after:left-0`
+                  // complicated css imcoming... 
+                  // basically give each link a small underlined that grow and change color on hover
+                  // the last part (tenary operator) simulate an hover state but for when link is selected
+                  `
+                  cursor-pointer capitalize xl:text-lg relative
+                  after:h-[2px] after:absolute after:bottom-1 after:left-0 after:transition-all after:duration-300
+                  hover:text-accent hover:scale-110 hover:after:w-[100%] hover:after:bg-accent transition-all  duration-300
+                  ${index == itemIndex ? 'text-accent after:w-[100%] after:bg-accent' : 'after:bg-white after:w-8'}
+                  `
                 }
                 onClick={() => setIndex(itemIndex)}
               >
