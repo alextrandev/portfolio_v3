@@ -18,14 +18,14 @@ export default function About() {
         initial="hidden"
         animate="show"
         exit="hidden"
-        className='hidden xl:flex absolute bottom-0 -left-[370px]'
+        className='hidden xl:flex absolute bottom-0 -left-[120px]'
       >
         <Avatar />
       </motion.div>
       <div className='container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6'>
         <div className='flex-1 flex flex-col justify-center'>text</div>
-        <div className='flex flex-col w-full xl:max-w-[48%] h-[380px]'>
-          <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
+        <div className='flex flex-col w-full xl:max-w-[48%] h-[330px]'>
+          <div className="flex flex-wrap justify-center xl:justify-start gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 md:mb-4">
             {/* section navigation bar */}
             {aboutData.map((item, itemIndex) =>
               <a
@@ -69,7 +69,7 @@ export default function About() {
                         {icon.icon}
                       </div>
                       {/* hover tooltip */}
-                      <div className='absolute top-full mt-5 left-1/2 -translate-x-1/2 hidden xl:group-hover:flex z-10'>
+                      <div className='absolute top-full mt-5 left-1/2 -translate-x-1/2 hidden xl:group-hover:flex focus:flex active:flex z-10'>
                         <div className='bg-white relative p-1.5 rounded'>
                           <p className="text-xs font-semibold text-black">{icon.text}</p>
                           {/* decorative triangle */}
