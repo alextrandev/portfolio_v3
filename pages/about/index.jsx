@@ -23,10 +23,21 @@ export default function About() {
         <Avatar />
       </motion.div>
       <div className='container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6'>
-        <div className='flex-1 flex flex-col justify-center'>text</div>
+        {/* about page text blocks */}
+        <div className='flex-1 flex flex-col justify-center xl:ml-24'>
+          <h2 className='h2'>
+            <div>How I became a</div>
+            <div><span className='text-accent'>Web developer </span>...</div>
+          </h2>
+          <p className='max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0'>
+            I began working with websites 9 years ago, initially building sites using various CMS platforms.
+            After gaining experience in my first job, I decided to dive into full-stack programming, starting with React, Symfony, and Drupal.
+          </p>
+        </div>
+        {/* info block with multiple sections */}
         <div className='flex flex-col w-full xl:max-w-[48%] h-[330px]'>
+          {/* section navigation bar */}
           <div className="flex flex-wrap justify-center xl:justify-start gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 md:mb-4">
-            {/* section navigation bar */}
             {aboutData.map((item, itemIndex) =>
               <a
                 key={`${itemIndex}_${item.title}`}
@@ -47,8 +58,8 @@ export default function About() {
               </a>
             )}
           </div>
+          {/* show current section infos */}
           <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start">
-            {/* show current section infos */}
             {aboutData[index].info.map((item, itemIndex) =>
               <div
                 key={`${itemIndex}_${item.title}`}
