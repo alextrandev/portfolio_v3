@@ -45,7 +45,7 @@ export default function About() {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className='max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0'
+            className='max-w-[500px] mx-auto xl:mx-0 mb-2 xl:mb-12 px-2 xl:px-0'
           >
             I began working with websites 9 years ago, initially building sites using various CMS platforms.
             After gaining experience in my first job, I decided to dive into full-stack programming, starting with React, Symfony, and Drupal.
@@ -76,14 +76,14 @@ export default function About() {
           </motion.div>
         </div>
         {/* info block with multiple sections */}
-        <div className='flex flex-col w-full xl:max-w-[48%] h-[330px]'>
+        <div className='flex flex-col w-full xl:max-w-[48%] h-[340px]'>
           {/* section navigation bar */}
           <motion.div
             variants={fadeIn('left', 0.2)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="flex flex-wrap justify-center xl:justify-start gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 md:mb-4"
+            className="flex flex-wrap justify-center xl:justify-start gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-2 md:mb-4"
           >
             {aboutData.map((item, itemIndex) =>
               <a
