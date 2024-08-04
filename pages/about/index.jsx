@@ -3,7 +3,7 @@ import { useState } from "react";
 import Avatar from '../../components/Avatar';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../variants';
-import aboutData from '../../lib/aboutData';
+import { aboutData, statistic } from '../../lib/aboutData';
 
 export default function About() {
   const [index, setIndex] = useState(0);
@@ -33,6 +33,17 @@ export default function About() {
             I began working with websites 9 years ago, initially building sites using various CMS platforms.
             After gaining experience in my first job, I decided to dive into full-stack programming, starting with React, Symfony, and Drupal.
           </p>
+          {/* counter */}
+          <div>
+            <div>
+              {statistic.map((stat, index) =>
+                <div key={`${stat.index}_${stat.text}`} className="">
+                  <div>{stat.number}</div>
+                  <div>{stat.text}</div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
         {/* info block with multiple sections */}
         <div className='flex flex-col w-full xl:max-w-[48%] h-[330px]'>
