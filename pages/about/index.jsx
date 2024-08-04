@@ -26,18 +26,22 @@ export default function About() {
       <div className='container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6'>
         {/* about page text blocks */}
         <div className='flex-1 flex flex-col justify-center xl:ml-24'>
-          <motion.h2
-            variants={fadeIn('right', 0.2)}
-            initial="hidden"
-            animate="show"
-            exit="hidden"
-            className='h2 flex flex-wrap justify-center xl:justify-start text-3xl xl:text-5xl'
-          >
-            <span>How I became a</span>&nbsp;
-            <span><span className='text-accent'>Web developer </span>...</span>
-          </motion.h2>
+          <h2 className='h2 flex flex-wrap justify-center xl:justify-start text-3xl xl:text-5xl'>
+            <motion.span
+              variants={fadeIn('right', 0.4)}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+            >How I became a</motion.span>&nbsp;
+            <motion.span
+              variants={fadeIn('right', 0.2)}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+            ><span className='text-accent'>Web developer </span>...</motion.span>
+          </h2>
           <motion.p
-            variants={fadeIn('right', 0.6)}
+            variants={fadeIn('right', 0.4)}
             initial="hidden"
             animate="show"
             exit="hidden"
@@ -48,7 +52,7 @@ export default function About() {
           </motion.p>
           {/* counters container */}
           <motion.div
-            variants={fadeIn('right', 1)}
+            variants={fadeIn('right', 0.6)}
             initial="hidden"
             animate="show"
             exit="hidden"
@@ -74,7 +78,13 @@ export default function About() {
         {/* info block with multiple sections */}
         <div className='flex flex-col w-full xl:max-w-[48%] h-[330px]'>
           {/* section navigation bar */}
-          <div className="flex flex-wrap justify-center xl:justify-start gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 md:mb-4">
+          <motion.div
+            variants={fadeIn('left', 0.2)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="flex flex-wrap justify-center xl:justify-start gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 md:mb-4"
+          >
             {aboutData.map((item, itemIndex) =>
               <a
                 key={`${itemIndex}_${item.title}`}
@@ -94,11 +104,15 @@ export default function About() {
                 {item.title}
               </a>
             )}
-          </div>
+          </motion.div>
           {/* show current section infos */}
           <div className="xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start">
             {aboutData[index].info.map((item, itemIndex) =>
-              <div
+              <motion.div
+                variants={fadeIn('left', 0.1 + itemIndex / 5)}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
                 key={`${itemIndex}_${item.title}`}
                 className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60"
               >
@@ -127,7 +141,7 @@ export default function About() {
                     </div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             )}
           </div>
         </div>
