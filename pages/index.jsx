@@ -1,6 +1,6 @@
 import ProjectsBtn from '../components/ProjectsBtn';
 import { easeInOut, motion } from 'framer-motion';
-import { fadeIn } from '../variants';
+import { fadeIn } from '../lib/motionVariants';
 import Avatar from '../components/Avatar';
 import ParticlesContainer from '../components/ParticlesContainer';
 

@@ -2,7 +2,7 @@ import Circles from '../../components/Circles';
 import { useState } from "react";
 import Avatar from '../../components/Avatar';
 import { motion } from 'framer-motion';
-import { fadeIn } from '../../variants';
+import { fadeIn } from '../../lib/motionVariants';
 import { aboutData, statistic } from '../../lib/aboutData';
 import CountUp from 'react-countup';
 
