@@ -14,13 +14,13 @@ import {
 export const navData = [
   { name: 'home', path: '/', icon: <HiHome /> },
   { name: 'about', path: '/about', icon: <HiUser /> },
-  { name: 'skills', path: '/skills', icon: <HiBookOpen /> },
+  // { name: 'skills', path: '/skills', icon: <HiBookOpen /> },
   { name: 'projects', path: '/projects', icon: <HiRectangleGroup /> },
-  {
-    name: 'resume',
-    path: '/resume',
-    icon: <HiViewColumns />,
-  },
+  // {
+  //   name: 'resume',
+  //   path: '/resume',
+  //   icon: <HiViewColumns />,
+  // },
   {
     name: 'contact',
     path: '/contact',

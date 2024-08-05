@@ -8,7 +8,7 @@ export default function Header() {
       <div className="container mx-auto sm:p-3">
         <div className="flex flex-row justify-between items-center gap-y-6 py-8 max-sm:flex-col max-sm:gap-0 max-sm:py-5">
           {/* logo */}
-          <Link href={'/'} className="flex items-center group">
+          <Link href={'/'} className="flex items-center group hover:cursor-pointer">
             <Image
               src={'/logo.svg'}
               width={65}
