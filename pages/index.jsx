@@ -20,7 +20,7 @@ export default function index() {
             className="h2"
           >
             <div>Hello world!</div>
-            <div>I'm<span className="text-accent animate-pulse"> Alex Tran</span></div>
+            <div>I am<span className="text-accent animate-pulse"> Alex Tran</span></div>
             <div>Web developer</div>
           </motion.h1>
           {/* short introduction */}
