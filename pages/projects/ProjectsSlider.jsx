@@ -9,7 +9,7 @@ import {
 
 
 // data
-const serviceData = [
+const projectsData = [
   {
     icon: <RxCrop />,
     title: 'Branding',
@@ -37,8 +37,8 @@ const serviceData = [
   },
 ];
 
-export default function ServiceSlider() {
+export default function ProjectsSlider() {
   return (
-    <div>ServiceSlider</div>
+    <div>Projects slider</div>
   )
 }
