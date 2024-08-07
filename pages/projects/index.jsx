@@ -15,7 +15,9 @@ export default function projects() {
             </p>
           </div>
           {/* projects slider */}
-          <ProjectsSlider />
+          <div className='w-full xl:max-w-[65%]'>
+            <ProjectsSlider />
+          </div>
         </div>
       </div>
       {/* 2 decoration components */}
