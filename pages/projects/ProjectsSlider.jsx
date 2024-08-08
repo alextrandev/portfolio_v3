@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Mousewheel, Navigation } from "swiper";
-import { GrNext, GrPrevious } from "react-icons/gr";
 
 // swiper style
 import 'swiper/css';
