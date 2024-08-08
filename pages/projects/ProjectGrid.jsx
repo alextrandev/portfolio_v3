@@ -51,12 +51,14 @@ export default function ProjectGrid({ slide, variant }) {
                 <div>
                   {project.links.map((link) =>
                     <Link
-                      className="flex items-center gap-1 hover:text-accent translate-y-52 group-hover:-translate-y-0 transition-all duration-300 delay-200"
+                      className="flex translate-y-52 group-hover:-translate-y-0 transition-all duration-300 delay-200"
                       href={link.url}
                       target="_blank"
                     >
-                      {link.title}
-                      <BsArrowRight />
+                      <span className="hover:text-accent transition-all duration-300 flex items-center gap-1">
+                        {link.title}
+                        <BsArrowRight />
+                      </span>
                     </Link>
                   )}
                 </div>

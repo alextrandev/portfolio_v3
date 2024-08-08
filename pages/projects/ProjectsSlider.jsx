@@ -1,27 +1,32 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-import { BsArrowRight } from "react-icons/bs";
+import { Pagination, Mousewheel, Navigation } from "swiper";
+import { GrNext, GrPrevious } from "react-icons/gr";
 
 // swiper style
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/mousewheel';
+import 'swiper/css/navigation';
 import projectsSlides from '../../lib/projectsData';
-import Image from "next/image";
-import Link from "next/link";
 import ProjectGrid from "./ProjectGrid";
 
 export default function ProjectsSlider() {
   return (
     <>
       {/* for larger devices */}
-      <div className="hidden xl:flex">
+      <div className="hidden xl:flex items-center">
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
           pagination={{
             clickable: true
           }}
-          modules={[Pagination]}
+          mousewheel={true}
+          navigation={{
+            nextEl: '.review-swiper-button-next',
+            prevEl: '.review-swiper-button-prev',
+          }}
+          modules={[Pagination, Mousewheel, Navigation]}
           className="h-[480px]"
         >
           {/* different variant and double mapping instead of using grid because Swiper grid is broken */}
@@ -31,7 +36,7 @@ export default function ProjectsSlider() {
             </SwiperSlide>
           )
           }
-        </Swiper >
+        </Swiper>
       </div>
       {/* for medium devices */}
       <div className="hidden sm:max-xl:flex">
@@ -41,7 +46,8 @@ export default function ProjectsSlider() {
           pagination={{
             clickable: true
           }}
-          modules={[Pagination]}
+          mousewheel={true}
+          modules={[Pagination, Mousewheel]}
           className="h-[210px] md:h-[245px] lg:h-[300px]"
         >
           {/* different variant and double mapping instead of using grid because Swiper grid is broken */}
@@ -61,7 +67,8 @@ export default function ProjectsSlider() {
           pagination={{
             clickable: true
           }}
-          modules={[Pagination]}
+          mousewheel={true}
+          modules={[Pagination, Mousewheel]}
           className="h-full"
         >
           {/* different variant and double mapping instead of using grid because Swiper grid is broken */}
