@@ -10,7 +10,7 @@ export default function About() {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="h-full bg-primary/30 py-32 text-center xl:text-left overflow-y-scroll lg:overflow-hidden">
+    <div className="h-full bg-primary/30 py-32 text-center xl:text-left overflow-y-scroll overflow-x-hidden lg:overflow-hidden">
       {/* decoration circle */}
       <Circles />
       {/* decoration avatar */}
@@ -151,6 +151,19 @@ export default function About() {
                 </div>
               </motion.div>
             )}
+            <div className='offset-div h-[5.2rem] min-h-[5.2rem] md:hidden'>
+              {/* 
+              This div together with overflow-scroll are to fix a problem of the nav bar cover the content of this page on shorter mobile screen
+              - It will offset the main content with a height equal to the nav bar height
+               */}
+              <Image
+                width={83.2}
+                height={83.2}
+                alt="Offset image"
+                src={"/logo.svg"}
+                className='opacity-0'
+              />
+            </div>
           </div>
         </div>
       </div>
