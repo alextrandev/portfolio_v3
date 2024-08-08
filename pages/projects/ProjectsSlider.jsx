@@ -4,35 +4,48 @@ import { BsArrowRight } from "react-icons/bs";
 
 // swiper style
 import 'swiper/css';
-import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import projectsSlides from '../../lib/projectsData';
+import Image from "next/image";
 
 export default function ProjectsSlider() {
   return (
     <Swiper
-      breakpoints={{
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 15,
-        },
-        640: {
-          slidesPerView: 3,
-          spaceBetween: 15,
-        },
-      }}
-      freeMode={true}
+      slidesPerView={1}
+      spaceBetween={10}
       pagination={{
         clickable: true
       }}
       modules={[Pagination]}
-      className="h-[240px] sm:h-[340px]"
+      className="h-[280px] sm:h-[480px] lg:max-xl:h-[280px]"
     >
-      {projectsSlides.map((item, index) =>
-        <SwiperSlide key={`${index}_${item.title}`}>
-          <img src={item.image} alt="" />
+      {/* double mapping instead of using grid because Swiper grid is broken */}
+      {projectsSlides(4).map((slide, index) =>
+        <SwiperSlide key={`project_${4 * index}->${4 * index + 4}`} >
+          <div className="grid grid-cols-2 grid-rows-2 gap-4 cursor-pointer">
+            {slide.map((project, index) =>
+              <div
+                key={`${index}_${project.title}`}
+                className="relative rounded-lg overflow-hidden flex items-center justify-center group"
+              >
+                <div className="flex items-center justify-center relative overflow-hidden">
+                  {/* thumbnail image */}
+                  <Image
+                    src={project.image}
+                    width={500}
+                    height={300}
+                    alt="Project thumbnail"
+                  />
+                  {/* overlay gradient filter */}
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#e838cc] to-[#4a22bd] opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
+
+                </div>
+              </div>
+            )}
+          </div>
         </SwiperSlide>
-      )}
-    </Swiper>
+      )
+      }
+    </Swiper >
   )
 }
