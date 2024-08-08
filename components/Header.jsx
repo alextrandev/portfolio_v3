@@ -4,11 +4,11 @@ import Socials from './Socials';
 
 export default function Header() {
   return (
-    <header className="absolute z-30 w-full flex items-center md:px-16 xl:px-0 xl:h-[90px]">
+    <header className="absolute z-50 w-full flex items-center md:px-16 xl:px-0 xl:h-[90px]">
       <div className="container mx-auto sm:p-3">
         <div className="flex flex-row justify-between items-center gap-y-6 py-8 max-sm:flex-col max-sm:gap-0 max-sm:py-5">
           {/* logo */}
-          <Link href={'/'} className="flex items-center group">
+          <Link href={'/'} className="flex items-center group hover:cursor-pointer">
             <Image
               src={'/logo.svg'}
               width={65}
