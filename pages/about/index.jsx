@@ -1,6 +1,5 @@
 import Circles from '../../components/Circles';
 import { useState } from "react";
-import Avatar from '../../components/Avatar';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../lib/motionVariants';
 import { aboutData, statistic } from '../../lib/aboutData';
@@ -11,7 +10,7 @@ export default function About() {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div className="h-full bg-primary/30 py-32 text-center xl:text-left overflow-y-scroll lg:overflow-hidden">
       {/* decoration circle */}
       <Circles />
       {/* decoration avatar */}
@@ -115,7 +114,7 @@ export default function About() {
             )}
           </motion.div>
           {/* show current section infos */}
-          <div className="xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start">
+          <div className="xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start pb-5">
             {aboutData[index].info.map((item, itemIndex) =>
               <motion.div
                 variants={fadeIn('left', 0.1 + itemIndex / 5)}
