@@ -19,7 +19,7 @@ export default function ProjectGrid({ slide, variant }) {
   return (
     // <div className="grid grid-cols-2 grid-rows-2 gap-4 cursor-pointer">
     <div className={variantClass}>
-      {slide.map((project, index) =>
+      {slide?.map((project, index) =>
         <div
           key={`${index}_${project.title}`}
           className="relative rounded-lg overflow-hidden flex items-center justify-center group"
@@ -41,16 +41,22 @@ export default function ProjectGrid({ slide, variant }) {
                 <div className="text-xl font-bold text-accent translate-y-52 group-hover:-translate-y-0 transition-all duration-300">{project.title}</div>
                 {/* tech stack */}
                 <div className="flex gap-1 translate-y-52 group-hover:-translate-y-0 transition-all duration-300 delay-100">
-                  {project.techStack.map((tech) =>
-                    <p className="bg-white/50 hover:bg-gray-100 text-[0.55rem] text-black font-bold uppercase px-2 py-0.5 tracking-wider rounded-xl">{tech}</p>
+                  {project.techStack?.map((tech) =>
+                    <p
+                      key={tech}
+                      className="bg-white/50 hover:bg-gray-100 text-[0.55rem] text-black font-bold uppercase px-2 py-0.5 tracking-wider rounded-xl"
+                    >
+                      {tech}
+                    </p>
                   )}
                 </div>
                 {/* description */}
                 <p className="leading-4 translate-y-52 group-hover:-translate-y-0 transition-all duration-300 delay-150">{project.description}</p>
                 {/* links */}
                 <div>
-                  {project.links.map((link) =>
+                  {project.links?.map((link) =>
                     <Link
+                      key={link.title}
                       className="flex translate-y-52 group-hover:-translate-y-0 transition-all duration-300 delay-200"
                       href={link.url}
                       target="_blank"
