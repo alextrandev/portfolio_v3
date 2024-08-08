@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '../../lib/motionVariants';
 import { aboutData, statistic } from '../../lib/aboutData';
 import CountUp from 'react-countup';
+import Image from "next/image";
 
 export default function About() {
   const [index, setIndex] = useState(0);
@@ -21,7 +22,15 @@ export default function About() {
         exit="hidden"
         className='hidden xl:flex absolute bottom-0 -left-[120px]'
       >
-        <Avatar />
+        <div className="hidden xl:flex xl:max-w-none pointer-events-none select-none">
+          <Image
+            src={'/avatar.png'}
+            width={368.5}
+            height={339}
+            alt="Avatar image"
+            className="translate-z-0 w-full h-full brightness-75 contrast-150"
+          />
+        </div>
       </motion.div>
       <div className='container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6'>
         {/* about page text blocks */}
