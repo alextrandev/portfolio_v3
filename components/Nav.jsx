@@ -53,6 +53,7 @@ export default function Nav() {
         {/* nav items/links mapping */}
         {navData.map((link, index) => (
           <NavLink 
+            key={`${index}_${link.name}`}
             link={link} 
             index={index} 
             pathName={pathName} 

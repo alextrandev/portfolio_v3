@@ -5,7 +5,6 @@ import NavLinkTooltip from "./NavLinkTooltip";
 export default function NavLink({ link, index, pathName }) {
   return (
     <Link
-      key={`${index}_${link.name}`}
       href={link.path}
       // so that link icon will change color based on active and hover
       className={

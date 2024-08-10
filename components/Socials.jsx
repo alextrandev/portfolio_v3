@@ -8,6 +8,7 @@ export default function Socials() {
     <div className="flex text-xl items-center max-sm:text-2xl">
       {socialsData.map((data) =>
         <SocialIcon
+          key={data.url}
           url={data.url}
           Icon={data.Icon}
           attr={data?.attr}
