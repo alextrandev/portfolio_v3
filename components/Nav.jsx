@@ -9,6 +9,7 @@ import {
   HiEnvelope,
   HiBookOpen,
 } from 'react-icons/hi2';
+import NavLink from './NavLink';
 
 // nav data and icons
 export const navData = [
@@ -51,30 +52,11 @@ export default function Nav() {
       >
         {/* nav items/links mapping */}
         {navData.map((link, index) => (
-          <Link
-            key={`${index}_${link.name}`}
-            href={link.path}
-            // so that link icon will change color based on active and hover
-            className={
-              `${link.path === pathName && 'text-accent'} 
-                relative md:p-5 flex items-center group
-              `
-            }
-          >
-            {/* hover tooltips */}
-            <div className='absolute pr-14 right-0 hidden xl:group-hover:flex'>
-              <div className='bg-white relative flex text-primary items-center p-1.5 rounded'>
-                <div className='text-xs leading-none font-semibold capitalize'>
-                  {link.name}
-                </div>
-                {/* decorative triangle */}
-                <div className='border-solid border-l-8 border-y-transparent border-y-[6px] border-r-0 absolute -right-2.5'></div>
-              </div>
-            </div>
-
-            {/* nav icons */}
-            <div className='md:group-hover:scale-150 group-hover:text-accent transition-all duration-250'>{link.icon}</div>
-          </Link>
+          <NavLink 
+            link={link} 
+            index={index} 
+            pathName={pathName} 
+          />
         ))}
       </div>
     </nav >
