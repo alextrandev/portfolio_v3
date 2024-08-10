@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '../../lib/motionVariants';
 import { aboutData } from '../../lib/aboutData';
 import Image from "next/image";
+import InfoBlockNav from "./InfoBlockNav";
 
 export default function InfoBlock() {
   const [index, setIndex] = useState(0);
@@ -10,33 +11,7 @@ export default function InfoBlock() {
   return (
     <div className='flex flex-col w-full xl:max-w-[48%] h-[340px]'>
       {/* section navigation bar */}
-      <motion.div
-        variants={fadeIn('left', 0.2)}
-        initial="hidden"
-        animate="show"
-        exit="hidden"
-        className="flex flex-wrap justify-center xl:justify-start gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-2 md:mb-4"
-      >
-        {aboutData.map((item, itemIndex) =>
-          <a
-            key={`${itemIndex}_${item.title}`}
-            className={
-              // complicated css imcoming... 
-              // basically give each link a small underlined that grow and change color on hover
-              // the last part (tenary operator) simulate an hover state but for when link is selected
-              `
-                  cursor-pointer capitalize xl:text-lg relative
-                  after:h-[2px] after:absolute after:bottom-1 after:left-0 after:transition-all after:duration-300
-                  hover:text-accent hover:scale-110 hover:after:w-[100%] hover:after:bg-accent transition-all  duration-300
-                  ${index == itemIndex ? 'text-accent after:w-[100%] after:bg-accent' : 'after:bg-white after:w-8'}
-                  `
-            }
-            onClick={() => setIndex(itemIndex)}
-          >
-            <h2>{item.title}</h2>
-          </a>
-        )}
-      </motion.div>
+      <InfoBlockNav index={index} setIndex={setIndex} />
       {/* show current section infos */}
       <div className="xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start pb-5">
         {aboutData[index].info.map((item, itemIndex) =>
