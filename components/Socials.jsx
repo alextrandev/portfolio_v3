@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { RiInstagramLine, RiGithubFill, RiLinkedinBoxLine, RiDiscordLine } from 'react-icons/ri';
 import { LiaSteam, LiaFlickr } from "react-icons/lia";
 import { TbBrandDrupal } from "react-icons/tb";
+import { SiDailydotdev } from "react-icons/si";
 
 // social icons bar
 export default function Socials() {
@@ -22,6 +23,11 @@ export default function Socials() {
         url={'https://www.drupal.org/u/alextran'}
         Icon={TbBrandDrupal}
         toolTip={["Drupal.org", "@alextran"]}
+      />
+      <Social
+        url={'https://app.daily.dev/alextran53'}
+        Icon={SiDailydotdev}
+        toolTip={["Daily.dev", "@alextran53"]}
       />
       <Social
         url={'https://www.instagram.com/dk10119/'}
