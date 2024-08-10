@@ -47,7 +47,7 @@ export default function About() {
                 }
                 onClick={() => setIndex(itemIndex)}
               >
-                {item.title}
+                <h2>{item.title}</h2>
               </a>
             )}
           </motion.div>
