@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
+import LoadingScreen from "../../components/LoadingScreen";
 
 export default function ProjectSlideOverlay({ project }) {
+  if (!project) {
+    return <LoadingScreen />
+  }
+
   return (
     <div className="absolute flex items-center text-center">
       <div className="flex flex-col items-center gap-2 p-2 text-[13px] tracking-[0.2em]">

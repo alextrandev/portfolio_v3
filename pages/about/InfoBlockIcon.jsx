@@ -1,4 +1,10 @@
+import LoadingScreen from "../../components/LoadingScreen"
+
 export default function InfoBlockIcon({ icon }) {
+  if (!icon) {
+    return <LoadingScreen />
+  }
+
   return (
     <div className="group px-2 relative">
       <div className="text-2xl text-white group-hover:text-accent group-hover:scale-125 transition-all duration-300">

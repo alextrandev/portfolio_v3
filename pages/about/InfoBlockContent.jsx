@@ -3,8 +3,13 @@ import { fadeIn } from '../../lib/motionVariants';
 import { aboutData } from '../../lib/aboutData';
 import Image from "next/image";
 import InfoBlockIcon from './InfoBlockIcon';
+import LoadingScreen from '../../components/LoadingScreen';
 
 export default function InfoBlockContent({ index }) {
+  if (index === undefined || !aboutData) {
+    return <LoadingScreen />
+  }
+
   return (
     <div className="xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start pb-5">
       {aboutData[index].info.map((item, itemIndex) =>
