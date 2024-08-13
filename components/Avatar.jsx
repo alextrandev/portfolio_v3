@@ -4,7 +4,7 @@ export default function Avatar() {
   return (
     <div className="hidden xl:flex xl:max-w-none pointer-events-none select-none">
       <Image
-        src={'/avatar.png'}
+        src={'/avatar.webp'}
         width={737}
         height={678}
         alt="Avatar image"
