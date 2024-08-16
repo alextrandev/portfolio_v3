@@ -1,4 +1,4 @@
-import FormButton from "./FormButton";
+import Form from "./Form";
 
 export default function index() {
   return (
@@ -10,17 +10,7 @@ export default function index() {
             Let's <span className='text-accent'>connect.</span>
           </h1>
           {/* contact form */}
-          <form className='flex-1 flex items-center flex-col gap-6 w-full mx-auto'>
-            {/* input group */}
-            <div className="flex gap-x-6 w-full">
-              <input type="text" placeholder="name" className="input" />
-              <input type="text" placeholder="email" className="input" />
-            </div>
-            <input type="text" placeholder="subject" className="input" />
-            <textarea placeholder='message' className='textarea'></textarea>
-            {/* submit button */}
-            <FormButton />
-          </form>
+          <Form />
         </div>
       </div>
     </div>
