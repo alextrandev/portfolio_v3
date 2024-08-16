@@ -1,5 +1,4 @@
-
-import { BsArrowRight } from 'react-icons/bs';
+import FormButton from "./FormButton";
 
 export default function index() {
   return (
@@ -19,10 +18,8 @@ export default function index() {
             </div>
             <input type="text" placeholder="subject" className="input" />
             <textarea placeholder='message' className='textarea'></textarea>
-            <button className='btn rounded-full border border-white/50 max-w-[170px] px-24 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group'>
-              <span className='group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500'>Send</span>
-              <BsArrowRight className='-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]' />
-            </button>
+            {/* submit button */}
+            <FormButton />
           </form>
         </div>
       </div>
