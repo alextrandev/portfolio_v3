@@ -5,10 +5,12 @@ import FormButton from "./FormButton";
 
 export default function Form() {
   const [mail, setMail] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(mail);
+    setSubmitted(true);
   }
 
   const handleInputChange = (e) => {
@@ -16,6 +18,23 @@ export default function Form() {
       ...prevState,
       [e.target.id]: e.target.value
     }))
+  }
+
+  const handleBackToForm = () => {
+    setMail({});
+    setSubmitted(false);
+  }
+
+  if (submitted) {
+    return (
+      <div className="flex-1 flex items-center flex-col gap-6 w-full mx-auto">
+        <h2 className="text-xl">Thank you for the message!</h2>
+        <div onClick={handleBackToForm} >
+          {/* reused the submit button and too lazy to rewrite click handle */}
+          <FormButton label="Send more message" />
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -31,12 +50,14 @@ export default function Form() {
           placeholder="Name"
           id="name"
           className="input capitalize"
+          required
         />
         <input
           type="email"
           placeholder="E-mail"
           id="email"
           className="input"
+          required
         />
       </div>
       <input
@@ -44,14 +65,16 @@ export default function Form() {
         placeholder="Subject"
         id="subject"
         className="input"
+        required
       />
       <textarea
         placeholder='Message'
         id='message'
         className='textarea'
+        required
       ></textarea>
       {/* submit button */}
-      <FormButton />
+      <FormButton label="Send" />
     </form>
   )
 }
