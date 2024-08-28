@@ -14,7 +14,7 @@ export default function Form() {
   const handleInputChange = (e) => {
     setMail((prevState) => ({
       ...prevState,
-      [e.target.placeholder]: e.target.value
+      [e.target.id]: e.target.value
     }))
   }
 
@@ -22,31 +22,36 @@ export default function Form() {
     <form
       className='flex-1 flex items-center flex-col gap-6 w-full mx-auto'
       onChange={handleInputChange}
+      onSubmit={handleSubmit}
     >
       {/* input group */}
       <div className="flex gap-x-6 w-full">
         <input
           type="text"
-          placeholder="name"
-          className="input"
+          placeholder="Name"
+          id="name"
+          className="input capitalize"
         />
         <input
           type="email"
-          placeholder="email"
+          placeholder="E-mail"
+          id="email"
           className="input"
         />
       </div>
       <input
         type="text"
-        placeholder="subject"
+        placeholder="Subject"
+        id="subject"
         className="input"
       />
       <textarea
-        placeholder='message'
+        placeholder='Message'
+        id='message'
         className='textarea'
       ></textarea>
       {/* submit button */}
-      <FormButton handleSubmit={handleSubmit} />
+      <FormButton />
     </form>
   )
 }
