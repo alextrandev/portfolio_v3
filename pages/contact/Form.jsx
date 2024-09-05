@@ -5,6 +5,7 @@ import FormButton from "./FormButton";
 import LoadingScreen from '../../components/LoadingScreen';
 
 export default function Form() {
+  // this state hold the form input values
   const [mail, setMail] = useState({
     name: '',
     email: '',
@@ -46,6 +47,7 @@ export default function Form() {
     }
   }
 
+  // to go back from the confirmation screen
   const handleBackToForm = () => {
     if (status === "sent") {
       setMail({ name: '', email: '', subject: '', message: '' });
@@ -53,6 +55,7 @@ export default function Form() {
     setStatus("idle");
   }
 
+  // loading screen when sending message
   if (status === "sending") {
     return (
       <div className="flex-1 flex items-center flex-col gap-6 w-full mx-auto">
@@ -62,6 +65,7 @@ export default function Form() {
     )
   }
 
+  // message confirmation text
   if (status === "sent" || status === "failed") {
     return (
       <div className="flex-1 flex items-center flex-col gap-6 w-full mx-auto">
@@ -117,6 +121,7 @@ export default function Form() {
         onChange={handleInputChange}
         required
       ></textarea>
+      {/* submit button */}
       <FormButton label="Send" />
     </form>
   )
