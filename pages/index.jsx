@@ -2,6 +2,7 @@ import ProjectsBtn from '../components/ProjectsBtn';
 import { easeInOut, motion } from 'framer-motion';
 import { fadeIn } from '../variants';
 import Avatar from '../components/Avatar';
+import ParticlesContainer from '../components/ParticlesContainer';
 
 export default function index() {
   return (
@@ -30,11 +31,11 @@ export default function index() {
             exit="hidden"
             className="max-w-sm mx-auto mb-10 xl:max-w-xl xl:mx-0 xl:mb-16"
           >
-            I have 2 years experience with CMS and Front-end dev<br />
+            I have 2 years experience with CMS and Frontend development<br />
             I am currently working on React, Next.js, Symfony and Drupal
           </motion.p>
           {/* button for mobile screen */}
-          <div className='flex justify-center xl:hidden relative'>
+          <div className='flex justify-center xl:hidden relative z-10'>
             <ProjectsBtn />
           </div>
           {/* button for desktop screen with animation */}
@@ -52,10 +53,9 @@ export default function index() {
       {/* hero banner image container */}
       <div className='w-[1200px] h-full absolute right-0 bottom-0'>
         {/* bg image */}
-        <div className='bg-none xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full absolute mix-blend-color-dodge translate-z-0'>
-        </div>
+        <div className='bg-none xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full absolute mix-blend-color-dodge translate-z-0'></div>
         {/* particles */}
-        <div>Particles</div>
+        <ParticlesContainer />
         {/* avatar img */}
         <motion.div
           variants={fadeIn('up', 0.5)}
