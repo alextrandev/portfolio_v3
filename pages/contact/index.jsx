@@ -7,7 +7,7 @@ export default function index() {
         <div className='flex flex-col w-full max-w-[700px]'>
           {/* header and text paragraph */}
           <h1 className='h2 text-center mb-12'>
-            Let's <span className='text-accent'>connect.</span>
+            Let&apos;s <span className='text-accent'>connect.</span>
           </h1>
           {/* contact form */}
           <Form />
