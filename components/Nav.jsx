@@ -44,7 +44,7 @@ export default function Nav() {
       <div
         className="
           flex w-full items-center justify-between h-[80px]
-           px-4 py-8 bg-white/10 backdrop-blur-sm text-3xl 
+           px-10 py-8 bg-white/10 backdrop-blur-sm text-3xl 
           xl:flex-col xl:justify-center xl:text-xl xl:rounded-full 
           xl:px-0 xl:h-max md:px-40 
         "
@@ -57,14 +57,13 @@ export default function Nav() {
             // so that link icon will change color based on active and hover
             className={
               `${link.path === pathName && 'text-accent'} 
-                relative p-5 flex items-center group
-                hover:text-accent transition-all duration-250
+                relative md:p-5 flex items-center group
               `
             }
           >
             {/* hover tooltips */}
             <div className='absolute pr-14 right-0 hidden xl:group-hover:flex'>
-              <div className='bg-white/80 relative flex text-primary items-center p-1.5 rounded'>
+              <div className='bg-white relative flex text-primary items-center p-1.5 rounded'>
                 <div className='text-xs leading-none font-semibold capitalize'>
                   {link.name}
                 </div>
@@ -74,7 +73,7 @@ export default function Nav() {
             </div>
 
             {/* nav icons */}
-            <div>{link.icon}</div>
+            <div className='md:group-hover:scale-150 group-hover:text-accent transition-all duration-250'>{link.icon}</div>
           </Link>
         ))}
       </div>

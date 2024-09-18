@@ -11,7 +11,7 @@ export default function ProjectsBtn() {
           width={141}
           height={148}
           alt="View my projects button"
-          className="animate-spin-slow w-full h-full max-w-[141px] max-h-[148px]"
+          className="animate-spin-slow w-full h-full max-w-[141px] max-h-[148px] pointer-events-none select-none"
         />
         <HiArrowRight className="absolute text-4xl group-hover:translate-x-2 transition-all duration-300" />
       </Link>

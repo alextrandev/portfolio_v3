@@ -8,7 +8,7 @@ export default function index() {
   return (
     <div className="bg-primary/60 h-full">
       {/* hero banner container */}
-      <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
+      <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10 z-10">
         {/* hero banner text container */}
         <div className="text-center flex flex-col justify-center h-full container mx-auto xl:pt-40 xl:text-left">
           {/* hero title */}
@@ -20,7 +20,7 @@ export default function index() {
             className="h2"
           >
             <div>Hello world!</div>
-            <div>I'm<span className="text-accent"> Alex Tran</span></div>
+            <div>I'm<span className="text-accent animate-pulse"> Alex Tran</span></div>
             <div>Web developer</div>
           </motion.h1>
           {/* short introduction */}
@@ -35,7 +35,7 @@ export default function index() {
             I am currently working on React, Next.js, Symfony and Drupal
           </motion.p>
           {/* button for mobile screen */}
-          <div className='flex justify-center xl:hidden relative z-10'>
+          <div className='flex justify-center xl:hidden relative z-10 pointer-events-none'>
             <ProjectsBtn />
           </div>
           {/* button for desktop screen with animation */}
@@ -51,7 +51,7 @@ export default function index() {
         </div>
       </div>
       {/* hero banner image container */}
-      <div className='w-[1200px] h-full absolute right-0 bottom-0'>
+      <div className='w-[1200px] h-full absolute right-0 bottom-0 pointer-events-none'>
         {/* bg image */}
         <div className='bg-none xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full absolute mix-blend-color-dodge translate-z-0'></div>
         {/* particles */}
