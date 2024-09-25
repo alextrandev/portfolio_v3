@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     const { data, error } = await resend.emails.send({
       from: 'Sender <sender@alextran.dev>',
-      to: ['reciever@alextran.dev'],
+      to: [process.env.EMAIL],
       subject: `Contact request from ${name} at ${email}`,
       text: `Message from ${name} at ${email}. Subject: ${subject}. Message: ${message}`,
     });
