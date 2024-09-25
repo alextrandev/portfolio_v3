@@ -75,7 +75,7 @@ export default function ProjectsSlider() {
           }}
           mousewheel={true}
           modules={[Pagination, Mousewheel]}
-          className="h-full"
+          className="h-[80%]"
         >
           {projectsSlides(1).map((slide, index) =>
             <SwiperSlide className="hidden" key={`project_${4 * index}->${4 * index + 4}`} >
@@ -87,4 +87,4 @@ export default function ProjectsSlider() {
       </div>
     </motion.div>
   )
-} 2
+}
