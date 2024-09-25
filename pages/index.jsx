@@ -29,7 +29,7 @@ export default function index() {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="max-w-sm mx-auto mb-10 xl:max-w-xl xl:mx-0 xl:mb-16"
+            className="max-w-sm mx-auto mb-3 md:mb-10 xl:max-w-xl xl:mx-0 xl:mb-16"
           >
             I have 2 years experience with CMS and Frontend development<br />
             I am currently working on React, Next.js, Symfony and Drupal

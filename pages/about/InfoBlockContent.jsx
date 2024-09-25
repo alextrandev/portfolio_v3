@@ -11,7 +11,7 @@ export default function InfoBlockContent({ index }) {
   }
 
   return (
-    <div className="xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start pb-5">
+    <div className="xl:py-6 flex flex-col gap-y-4 items-center xl:items-start pb-5">
       {aboutData[index].info.map((item, itemIndex) =>
         <motion.div
           variants={fadeIn('left', 0.1 + itemIndex / 5)}

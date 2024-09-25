@@ -6,7 +6,7 @@ export default function index() {
       <div className='container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full'>
         <div className='flex flex-col w-full max-w-[700px]'>
           {/* header and text paragraph */}
-          <h1 className='h2 text-center mb-12'>
+          <h1 className='h2 text-center mb-4 md:mb-12'>
             Let&apos;s <span className='text-accent'>connect.</span>
           </h1>
           {/* contact form */}
