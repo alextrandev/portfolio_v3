@@ -11,6 +11,10 @@
   background-color: #f13024;
 }
 
+.swiper-pagination {
+  @apply pb-2 md:pb-0
+}
+
 .swiper-button-next:after,
 .swiper-button-prev:after,
 .swiper-button-next:after,

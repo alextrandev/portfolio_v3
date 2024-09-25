@@ -4,7 +4,7 @@ import IntroductionBlockCounter from './IntroductionBlockCounter';
 
 export default function IntroductionText() {
   return (
-    <div className='flex-1 flex flex-col justify-center xl:ml-24'>
+    <div className='md:flex-1 flex flex-col justify-center xl:ml-24'>
       {/* header for bigger screen */}
       <h1 className='h2 hidden md:flex flex-wrap justify-center xl:justify-start text-3xl xl:text-5xl'>
         <motion.span
@@ -26,7 +26,7 @@ export default function IntroductionText() {
         initial="hidden"
         animate="show"
         exit="hidden"
-        className='h2 md:hidden flex flex-wrap justify-center text-3xl mb-0 md:mb-4'
+        className='h2 md:hidden flex flex-wrap justify-center text-3xl'
       >
         About me&nbsp;
         <span className='text-accent'>...</span>
@@ -36,7 +36,7 @@ export default function IntroductionText() {
         initial="hidden"
         animate="show"
         exit="hidden"
-        className='max-w-[500px] mx-auto xl:mx-0 mb-2 xl:mb-12 px-2 xl:px-0'
+        className='hidden md:flex max-w-[500px] mx-auto xl:mx-0 mb-2 xl:mb-12 px-2 xl:px-0'
       >
         I began building websites 9 years ago with various CMS platforms.
         I am currently diving into full-stack programming, starting with React, Symfony, and Drupal.
