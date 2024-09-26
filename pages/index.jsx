@@ -19,7 +19,7 @@ export default function index() {
             exit="hidden"
             className="h2"
           >
-            <div>Hello world!</div>
+            <div className='hidden md:block'>Hello world!</div>
             <div>I am<span className="text-accent animate-pulse"> Alex Tran</span></div>
             <div>Web developer</div>
           </motion.h1>
@@ -34,17 +34,13 @@ export default function index() {
             I have 2 years experience with CMS and Frontend development<br />
             I am currently working on React, Next.js, Symfony and Drupal
           </motion.p>
-          {/* button for mobile screen */}
-          <div className='flex justify-center xl:hidden relative z-10 pointer-events-none'>
-            <ProjectsBtn />
-          </div>
-          {/* button for desktop screen with animation */}
+          {/* button to projects page */}
           <motion.div
             variants={fadeIn('down', 0.4)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className='hidden xl:flex'
+            className='flex justify-center xl:justify-start z-50'
           >
             <ProjectsBtn />
           </motion.div>
