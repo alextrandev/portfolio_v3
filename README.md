@@ -44,9 +44,11 @@ Libraries and frameworks:
 ![Contact page screenshot](assets/screenshot/screenshot-contactpage.png)
 
 **Mobile version**
-<img align="left" src="./assets/screenshot/screenshot-homepage-mobile.png" width="250">
-<img align="center" src="./assets/screenshot/screenshot-aboutpage-mobile.png" width="250">
-<img align="right" src="./assets/screenshot/screenshot-projectpage-mobile.png" width="250">
+<div>
+  <img align="left" src="./assets/screenshot/screenshot-homepage-mobile.png" width="250">
+  <img align="center" src="./assets/screenshot/screenshot-aboutpage-mobile.png" width="250">
+  <img align="right" src="./assets/screenshot/screenshot-projectpage-mobile.png" width="250">
+</div>
 
 ## Authors and acknowledgment
 
