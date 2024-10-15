@@ -18,6 +18,7 @@ export default function Avatar() {
           height={339}
           alt="Avatar image"
           className="translate-z-0 w-full h-full brightness-75 contrast-150"
+          priority
         />
       </div>
     </motion.div>
