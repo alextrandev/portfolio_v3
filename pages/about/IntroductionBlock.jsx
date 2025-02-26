@@ -39,7 +39,7 @@ export default function IntroductionText() {
         className='hidden md:flex max-w-[500px] mx-auto xl:mx-0 mb-2 xl:mb-12 px-2 xl:px-0'
       >
         I began building websites 9 years ago with various CMS platforms.
-        I am currently diving into full-stack programming, starting with React, Symfony, and Drupal.
+        I am currently diving into full-stack programming with React, Node.js, Next.js, Express, etc.
       </motion.p>
       {/* counters container */}
       <IntroductionBlockCounter />

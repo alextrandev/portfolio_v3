@@ -21,7 +21,7 @@ export default function index() {
           >
             <div className='hidden md:block'>Hello world!</div>
             <div>I am<span className="text-accent animate-pulse"> Alex Tran</span></div>
-            <div>Web developer</div>
+            <div>Software engineer</div>
           </motion.h1>
           {/* short introduction */}
           <motion.p
@@ -31,8 +31,8 @@ export default function index() {
             exit="hidden"
             className="max-w-sm mx-auto mb-3 md:mb-10 xl:max-w-xl xl:mx-0 xl:mb-16"
           >
-            I have 2 years experience with CMS and Frontend development<br />
-            I am currently working on React, Next.js, Symfony and Drupal
+            I have 3 years experience with CMS and Frontend development<br />
+            I am currently working on React, Node.js, Next.js and Express
           </motion.p>
           {/* button to projects page */}
           <motion.div
