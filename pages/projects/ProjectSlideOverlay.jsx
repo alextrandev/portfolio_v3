@@ -1,14 +1,20 @@
 import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
+import { FaApple, FaGlobe, FaGooglePlay } from "react-icons/fa";
 
 // classes shared by every overlay row: slide up into view on hover/focus, always visible below sm
 const reveal = "translate-y-52 max-sm:translate-y-0 group-hover:translate-y-0 group-focus-within:translate-y-0 transition-all duration-300";
 
-export default function ProjectSlideOverlay({ project }) {
+// store platform -> logo + label for the app store links
+const storeMeta = {
+  ios: { Icon: FaApple, label: 'App Store' },
+  android: { Icon: FaGooglePlay, label: 'Google Play' },
+};
+
+export default function ProjectSlideOverlay({ project, variant }) {
   if (!project) return null;
 
   return (
-    <div className="absolute flex items-center text-center">
+    <div className={`absolute flex items-center text-center ${variant === 4 ? '' : 'sm:max-md:scale-75'}`}>
       <div className="flex flex-col items-center gap-2 p-2 text-sm tracking-wide">
         {/* title */}
         <div className={`text-xl font-bold text-white ${reveal}`}>
@@ -25,25 +31,43 @@ export default function ProjectSlideOverlay({ project }) {
             </span>
           )}
         </div>
-        {/* description */}
-        <p className={`leading-5 text-white ${reveal} delay-150`}>{project.description}</p>
-        {/* links */}
-        <div>
+        {/* description; tighter type where cells are small (xl grid and tablet slides) */}
+        <p className={`text-white ${variant === 4 ? 'text-xs leading-4' : 'max-sm:leading-5 sm:text-xs sm:leading-4 sm:max-md:line-clamp-4'} ${reveal} delay-150`}>
+          {project.description}
+        </p>
+        {/* links + iOS/Android app store links, one wrapping row to save vertical space */}
+        <div className={`flex flex-wrap items-center justify-center gap-x-5 gap-y-1 ${reveal} delay-200`}>
           {project.links?.map((link) =>
             <Link
               key={link.title}
-              className={`flex ${reveal} delay-200`}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
             >
               <span className="hover:text-accent transition-all duration-300 flex items-center gap-1 text-white font-semibold">
+                <FaGlobe aria-hidden="true" />
                 {link.title}
-                <BsArrowRight aria-hidden="true" />
                 <span className="sr-only">(opens in new tab)</span>
               </span>
             </Link>
           )}
+          {project.stores?.map((store) => {
+            const meta = storeMeta[store.platform];
+            if (!meta) return null;
+            return (
+              <Link
+                key={store.platform}
+                href={store.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-white hover:text-accent transition-all duration-300"
+              >
+                <meta.Icon className="text-lg" aria-hidden="true" />
+                <span className="text-xs font-semibold">{meta.label}</span>
+                <span className="sr-only">(opens in new tab)</span>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -25,7 +25,7 @@ export default function ProjectGrid({ slide, variant }) {
             {/* a gradient overlay background; shown on hover/focus, always on for touch-sized screens */}
             <div className="absolute inset-0 bg-linear-to-br from-transparent via-[#3c14b5] to-[#e838cc] opacity-0 max-sm:opacity-90 group-hover:opacity-90 group-focus-within:opacity-90 transition-all duration-700"></div>
             {/* an overlay with gradient background and info, shown on hover/focus/touch */}
-            <ProjectSlideOverlay project={project} />
+            <ProjectSlideOverlay project={project} variant={variant} />
           </div>
         </div>
       )}

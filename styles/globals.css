@@ -42,6 +42,25 @@
   /* Swiper reads its arrow/bullet colors from these variables */
   --swiper-navigation-color: #f13024;
   --swiper-pagination-color: #f13024;
+  /* smaller arrows placed at the bottom, flanking the pagination dots
+     (only the xl projects swiper enables navigation). The 8px dots sit
+     8px from the bottom edge, so their centerline is at 100% - 12px;
+     the offset positions the arrow's top edge, so subtract half its size. */
+  --swiper-navigation-size: 16px;
+  --swiper-navigation-top-offset: calc(100% - 20px);
+  --swiper-navigation-sides-offset: calc(50% - 75px);
+}
+
+/*
+  The pagination bar is a full-width absolutely-positioned strip layered
+  over the repositioned arrows, so it swallows their clicks. Let clicks
+  pass through the strip itself while keeping the bullets clickable.
+*/
+.swiper-pagination {
+  pointer-events: none;
+}
+.swiper-pagination-bullet {
+  pointer-events: auto;
 }
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
