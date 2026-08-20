@@ -40,8 +40,10 @@ const particlesOptions = {
     }
   },
   particles: {
-    color: {
-      value: '#f0bf65',
+    paint: {
+      color: {
+        value: '#f0bf65',
+      },
     },
     links: {
       color: '#f5d393',
