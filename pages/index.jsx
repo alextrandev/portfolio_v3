@@ -8,7 +8,7 @@ export default function index() {
   return (
     <div className="bg-primary/60 h-full">
       {/* hero banner container */}
-      <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10 z-10">
+      <div className="w-full h-full bg-linear-to-r from-primary/10 via-black/30 to-black/10 z-10">
         {/* hero banner text container */}
         <div className="text-center flex flex-col justify-center h-full container mx-auto xl:pt-40 xl:text-left">
           {/* hero title */}
@@ -59,7 +59,7 @@ export default function index() {
           animate="show"
           exit="hidden"
           transition={{ duration: 1, ease: easeInOut }}
-          className='w-full h-full max-w-[737px] max-h-[678px] absolute -bottom-32 lg:bottom-[-4rem] lg:scale-[82%] lg:right-[4%]'
+          className='w-full h-full max-w-[737px] max-h-[678px] absolute -bottom-32 lg:-bottom-16 lg:scale-[82%] lg:right-[4%]'
         >
           <Avatar />
         </motion.div>

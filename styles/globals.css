@@ -1,25 +1,53 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-.translate-z-0 {
-  transform: translateZ(0px);
-}
-.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets
-  .swiper-pagination-bullet {
-  background-color: #f13024;
-}
+@config '../tailwind.config.js';
 
-.swiper-pagination {
-  @apply pb-2 md:pb-0
+/*
+  Tailwind v4 removed the `container` padding config option;
+  this restores the 15px default padding from the old tailwind.config.js.
+*/
+@utility container {
+  padding-inline: 15px;
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after,
-.swiper-button-next:after,
-.swiper-rtl .swiper-button-prev:after {
-  color: #f13024;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@layer utilities {
+  .translate-z-0 {
+    transform: translateZ(0px);
+  }
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    background-color: #f13024;
+  }
+
+  .swiper-pagination {
+    @apply pb-2 md:pb-0;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after,
+  .swiper-button-next:after,
+  .swiper-rtl .swiper-button-prev:after {
+    color: #f13024;
+  }
 }
 
 @layer base {
@@ -50,7 +78,7 @@
   }
   .input,
   .textarea {
-    @apply bg-transparent outline-none focus:ring-1 focus:ring-accent border border-white/20 placeholder:text-white/30 placeholder:font-light;
+    @apply bg-transparent outline-hidden focus:ring-1 focus:ring-accent border border-white/20 placeholder:text-white/30 placeholder:font-light;
   }
   .textarea {
     @apply w-full h-[100px] md:h-[180px] p-6 rounded-lg resize-none;
