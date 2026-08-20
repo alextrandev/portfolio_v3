@@ -8,9 +8,14 @@ Personal portfolio site (alextran.dev) built with Next.js 16 (Pages Router), pla
 
 ## Commands
 
-- `npm run dev` — start dev server
+- `npm run dev` — start dev server (one instance per project; after dependency changes, kill and restart a running one — it serves 500s on stale binaries)
 - `npm run build` — production build
 - `npm run lint` — ESLint 9 flat config (`eslint.config.mjs`, next/core-web-vitals)
+
+## Deployment & dependencies
+
+- Netlify hosts alextran.dev. PRs get deploy previews; **production builds from the `production` branch**, so releasing = `git push origin main:production` after merging to main. `netlify.toml` pins Node 22 (required by Next 16).
+- Dependabot (weekly): minor/patch bumps arrive grouped and auto-merge via workflow once CI passes; major bumps fail CI individually by design — handle them in one consolidated upgrade branch/PR, and the superseded Dependabot PRs auto-close after it merges.
 
 ## Architecture
 
