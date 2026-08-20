@@ -20,7 +20,7 @@
     "resend": "^4.0.0",
     "swiper": "^9.4.0",
     "tailwind-scrollbar": "^3.0.4",
-    "tsparticles": "^2.9.3"
+    "tsparticles": "^4.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
