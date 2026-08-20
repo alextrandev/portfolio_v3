@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FormButton from "./FormButton";
 import LoadingScreen from '../../components/LoadingScreen';
+import { formText } from '../../lib/siteText';
 
 export default function Form() {
   // this state hold the form input values
@@ -33,14 +34,14 @@ export default function Form() {
       const result = await response.json();
 
       if (response.ok) {
-        setResponseMsg('Thank you for the message!');
+        setResponseMsg(formText.sent);
         setStatus('sent');
       } else {
-        setResponseMsg(result.error ?? 'Something went wrong... Please try again!');
+        setResponseMsg(result.error ?? formText.failed);
         setStatus('failed');
       }
     } catch (error) {
-      setResponseMsg('Something went wrong... Please try again!');
+      setResponseMsg(formText.failed);
       setStatus('failed');
     }
   }
@@ -57,7 +58,7 @@ export default function Form() {
   if (status === "sending") {
     return (
       <div role="status" aria-live="polite" className="flex-1 flex items-center flex-col gap-6 w-full mx-auto">
-        <h2 className="text-xl">Sending message. Please wait!</h2>
+        <h2 className="text-xl">{formText.sending}</h2>
         <LoadingScreen />
       </div>
     )
@@ -71,7 +72,7 @@ export default function Form() {
         <FormButton
           type="button"
           onClick={handleBackToForm}
-          label={status === "failed" ? "Try again" : "Send another message"}
+          label={status === "failed" ? formText.tryAgain : formText.sendAnother}
         />
       </div>
     )
@@ -84,10 +85,10 @@ export default function Form() {
     >
       <div className="flex gap-x-2 md:gap-x-6 w-full">
         <div className="w-full">
-          <label htmlFor="name" className="sr-only">Name</label>
+          <label htmlFor="name" className="sr-only">{formText.fields.name}</label>
           <input
             type="text"
-            placeholder="Name"
+            placeholder={formText.fields.name}
             id="name"
             name="name"
             autoComplete="name"
@@ -99,10 +100,10 @@ export default function Form() {
           />
         </div>
         <div className="w-full">
-          <label htmlFor="email" className="sr-only">E-mail</label>
+          <label htmlFor="email" className="sr-only">{formText.fields.email}</label>
           <input
             type="email"
-            placeholder="E-mail"
+            placeholder={formText.fields.email}
             id="email"
             name="email"
             autoComplete="email"
@@ -114,10 +115,10 @@ export default function Form() {
           />
         </div>
       </div>
-      <label htmlFor="subject" className="sr-only">Subject</label>
+      <label htmlFor="subject" className="sr-only">{formText.fields.subject}</label>
       <input
         type="text"
-        placeholder="Subject"
+        placeholder={formText.fields.subject}
         id="subject"
         name="subject"
         maxLength={200}
@@ -126,9 +127,9 @@ export default function Form() {
         onChange={handleInputChange}
         required
       />
-      <label htmlFor="message" className="sr-only">Message</label>
+      <label htmlFor="message" className="sr-only">{formText.fields.message}</label>
       <textarea
-        placeholder='Message'
+        placeholder={formText.fields.message}
         id='message'
         name='message'
         maxLength={5000}
@@ -138,7 +139,7 @@ export default function Form() {
         required
       ></textarea>
       {/* submit button */}
-      <FormButton label="Send" type="submit" />
+      <FormButton label={formText.send} type="submit" />
     </form>
   )
 }

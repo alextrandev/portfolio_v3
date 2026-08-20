@@ -3,13 +3,14 @@ import Circles from "../../components/Circles";
 import ProjectsSlider from './ProjectsSlider';
 import IntroText from './IntroText';
 import Seo from '../../components/Seo';
+import { projectsText } from '../../lib/siteText';
 
 export default function Projects() {
   return (
     <div className='h-full bg-primary/30 overflow-y-auto xl:overflow-hidden flex'>
       <Seo
-        title="Projects"
-        description="Recent web projects by Alex Tran — live demos and source code, from full-stack apps to CMS builds."
+        title={projectsText.seoTitle}
+        description={projectsText.seoDescription}
       />
       {/* m-auto centers when content fits and stays scrollable when it doesn't */}
       <div className='container mx-auto my-auto py-32 pb-28 xl:pb-32'>

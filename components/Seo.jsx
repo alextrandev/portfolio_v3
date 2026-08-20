@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { seoText } from '../lib/siteText';
 
 const SITE_URL = 'https://alextran.dev';
-const SITE_NAME = 'Alex Tran | Software Engineer';
 
 // per-page meta tags; every route renders this once
 export default function Seo({ title, description }) {
   const { pathname } = useRouter();
-  const fullTitle = title ? `${title} | Alex Tran` : SITE_NAME;
+  const fullTitle = title ? `${title} | ${seoText.titleSuffix}` : seoText.siteName;
   const url = `${SITE_URL}${pathname === '/' ? '' : pathname}`;
 
   return (
@@ -16,7 +16,7 @@ export default function Seo({ title, description }) {
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Alex Tran" />
+      <meta property="og:site_name" content={seoText.ogSiteName} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />

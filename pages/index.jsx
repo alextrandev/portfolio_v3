@@ -4,11 +4,12 @@ import { fadeIn } from '../lib/motionVariants';
 import Avatar from '../components/Avatar';
 import ParticlesContainer from '../components/ParticlesContainer';
 import Seo from '../components/Seo';
+import { homeText } from '../lib/siteText';
 
 export default function Home() {
   return (
     <div className="bg-primary/60 h-full">
-      <Seo description="Portfolio of Alex Tran, a software engineer based in Helsinki working with React, Node.js, Next.js and Express." />
+      <Seo description={homeText.seoDescription} />
       {/* hero banner container */}
       <div className="w-full h-full bg-linear-to-r from-primary/10 via-black/30 to-black/10 z-10">
         {/* hero banner text container */}
@@ -21,9 +22,9 @@ export default function Home() {
             exit="hidden"
             className="h2"
           >
-            <span className='hidden md:block'>Hello world!</span>
-            <span className="block">I am<span className="text-accent animate-pulse"> Alex Tran</span></span>
-            <span className="block">Software engineer</span>
+            <span className='hidden md:block'>{homeText.greeting}</span>
+            <span className="block">{homeText.iAm}<span className="text-accent animate-pulse"> {homeText.name}</span></span>
+            <span className="block">{homeText.role}</span>
           </motion.h1>
           {/* short introduction */}
           <motion.p
@@ -33,8 +34,8 @@ export default function Home() {
             exit="hidden"
             className="max-w-sm mx-auto mb-3 md:mb-10 xl:max-w-xl xl:mx-0 xl:mb-16"
           >
-            I have 4+ years of experience in CMS and frontend development.<br />
-            I currently work with React, Node.js, Next.js and Express.
+            {homeText.intro[0]}<br />
+            {homeText.intro[1]}
           </motion.p>
           {/* button to projects page */}
           <motion.div

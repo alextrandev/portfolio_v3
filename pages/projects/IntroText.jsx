@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../lib/motionVariants';
+import { projectsText } from '../../lib/siteText';
 
 export default function IntroText() {
   return (
@@ -11,7 +12,7 @@ export default function IntroText() {
         exit="hidden"
         className='h2 xl:mt-8'
       >
-        My projects
+        {projectsText.heading}
         <span className='text-accent'> .</span>
       </motion.h1>
       <motion.p
@@ -21,7 +22,7 @@ export default function IntroText() {
         exit="hidden"
         className='mb-4 max-w-[400px] mx-auto lg:mx-0'
       >
-        Check out my recent web projects. Feel free to visit the live websites for a demonstration or checkout the public repository for the source codes
+        {projectsText.intro}
       </motion.p>
     </div>
   )

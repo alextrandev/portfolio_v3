@@ -19,7 +19,7 @@ Personal portfolio site (alextran.dev) built with Next.js 16 (Pages Router), pla
 
 ## Architecture
 
-**Content lives in `lib/`, not in components.** Portfolio content updates (new projects, about-page text, social links) are made by editing the data arrays in `lib/projectsData.js`, `lib/aboutData.js`, and `lib/socialsData.js` — components just render these. Project thumbnails go in `public/thumbnails/`. Shared Framer Motion variants (e.g. the `fadeIn(direction, delay)` factory) live in `lib/motionVariants.js`.
+**Content lives in `lib/`, not in components.** ALL user-facing copy is data: page text, headings, nav labels and form strings live in `lib/siteText.js`; projects, about-page skills/experience and social links live in `lib/projectsData.js`, `lib/aboutData.js`, and `lib/socialsData.js` — components just render these. Never hardcode visible text in a component. Project thumbnails go in `public/thumbnails/`. Shared Framer Motion variants (e.g. the `fadeIn(direction, delay)` factory) live in `lib/motionVariants.js`.
 
 **Page structure:** Each route is a directory under `pages/` containing `index.jsx` plus that page's private components co-located in the same folder (e.g. `pages/about/InfoBlock.jsx`, `pages/contact/Form.jsx`). Components shared across pages live in the top-level `components/` directory. Note the co-located component files technically become routes too (Pages Router behavior) — this is the accepted convention here.
 

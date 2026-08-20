@@ -1,20 +1,6 @@
 import { useRouter } from 'next/router';
-// icons import
-import {
-  HiHome,
-  HiUser,
-  HiRectangleGroup,
-  HiEnvelope,
-} from 'react-icons/hi2';
 import NavLink from './NavLink';
-
-// nav data and icons
-export const navData = [
-  { name: 'home', path: '/', icon: <HiHome /> },
-  { name: 'about', path: '/about', icon: <HiUser /> },
-  { name: 'projects', path: '/projects', icon: <HiRectangleGroup /> },
-  { name: 'contact', path: '/contact', icon: <HiEnvelope /> },
-];
+import { navData } from '../lib/siteText';
 
 export default function Nav() {
   const router = useRouter();

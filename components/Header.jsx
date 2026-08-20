@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Socials from './Socials';
+import { headerText } from '../lib/siteText';
 
 export default function Header() {
   return (
@@ -18,8 +19,8 @@ export default function Header() {
               className="max-sm:w-10 pointer-events-none select-none group-hover:scale-110"
             />
             <div className="flex flex-row gap-2 xl:flex-col xl:gap-0 group-hover:text-accent transition-all duration-300">
-              <span className="h2 text-xl p-0 mb-0 xl:-mb-2">Alex Tran</span>
-              <p className="p-0 m-0 text-xl xl:text-base">portfolio</p>
+              <span className="h2 text-xl p-0 mb-0 xl:-mb-2">{headerText.name}</span>
+              <p className="p-0 m-0 text-xl xl:text-base">{headerText.tagline}</p>
             </div>
           </Link>
           {/* Social links */}
