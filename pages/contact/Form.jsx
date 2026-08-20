@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from "react";
 import FormButton from "./FormButton";
 import LoadingScreen from '../../components/LoadingScreen';
@@ -38,7 +36,7 @@ export default function Form() {
         setResponseMsg('Thank you for the message!');
         setStatus('sent');
       } else {
-        setResponseMsg(`Error: ${result.error}`);
+        setResponseMsg(result.error ?? 'Something went wrong... Please try again!');
         setStatus('failed');
       }
     } catch (error) {
@@ -58,7 +56,7 @@ export default function Form() {
   // loading screen when sending message
   if (status === "sending") {
     return (
-      <div className="flex-1 flex items-center flex-col gap-6 w-full mx-auto">
+      <div role="status" aria-live="polite" className="flex-1 flex items-center flex-col gap-6 w-full mx-auto">
         <h2 className="text-xl">Sending message. Please wait!</h2>
         <LoadingScreen />
       </div>
@@ -68,13 +66,13 @@ export default function Form() {
   // message confirmation text
   if (status === "sent" || status === "failed") {
     return (
-      <div className="flex-1 flex items-center flex-col gap-6 w-full mx-auto">
+      <div role="status" aria-live="polite" className="flex-1 flex items-center flex-col gap-6 w-full mx-auto">
         <h2 className="text-xl">{responseMsg}</h2>
-        <div onClick={handleBackToForm} >
-          <FormButton
-            label={status === "failed" ? "Try again" : "Send more message"}
-          />
-        </div>
+        <FormButton
+          type="button"
+          onClick={handleBackToForm}
+          label={status === "failed" ? "Try again" : "Send another message"}
+        />
       </div>
     )
   }
@@ -85,44 +83,62 @@ export default function Form() {
       onSubmit={handleSubmit}
     >
       <div className="flex gap-x-2 md:gap-x-6 w-full">
-        <input
-          type="text"
-          placeholder="Name"
-          id="name"
-          className="input capitalize"
-          value={mail.name}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          type="email"
-          placeholder="E-mail"
-          id="email"
-          className="input"
-          value={mail.email}
-          onChange={handleInputChange}
-          required
-        />
+        <div className="w-full">
+          <label htmlFor="name" className="sr-only">Name</label>
+          <input
+            type="text"
+            placeholder="Name"
+            id="name"
+            name="name"
+            autoComplete="name"
+            maxLength={100}
+            className="input capitalize"
+            value={mail.name}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="w-full">
+          <label htmlFor="email" className="sr-only">E-mail</label>
+          <input
+            type="email"
+            placeholder="E-mail"
+            id="email"
+            name="email"
+            autoComplete="email"
+            maxLength={200}
+            className="input"
+            value={mail.email}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
       </div>
+      <label htmlFor="subject" className="sr-only">Subject</label>
       <input
         type="text"
         placeholder="Subject"
         id="subject"
+        name="subject"
+        maxLength={200}
         className="input"
         value={mail.subject}
         onChange={handleInputChange}
         required
       />
+      <label htmlFor="message" className="sr-only">Message</label>
       <textarea
         placeholder='Message'
         id='message'
+        name='message'
+        maxLength={5000}
         className='textarea'
         value={mail.message}
         onChange={handleInputChange}
         required
       ></textarea>
       {/* submit button */}
-      <FormButton label="Send" />
+      <FormButton label="Send" type="submit" />
     </form>
   )
 }

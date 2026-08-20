@@ -14,11 +14,10 @@ export default function Avatar() {
       <div className="hidden xl:flex xl:max-w-none pointer-events-none select-none">
         <Image
           src={'/avatar.webp'}
-          width={368.5}
+          width={369}
           height={339}
-          alt="Avatar image"
-          className="translate-z-0 w-full h-full brightness-75 contrast-150"
-          priority
+          alt=""
+          className="translate-z-0 w-full h-auto brightness-75 contrast-150"
         />
       </div>
     </motion.div>

@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Mousewheel, Navigation } from "swiper/modules";
+import { Pagination, Mousewheel, Navigation, Keyboard, A11y } from "swiper/modules";
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../lib/motionVariants';
 import projectsSlides from '../../lib/projectsData';
@@ -30,19 +30,16 @@ export default function ProjectsSlider() {
             clickable: true
           }}
           mousewheel={true}
-          navigation={{
-            nextEl: '.review-swiper-button-next',
-            prevEl: '.review-swiper-button-prev',
-          }}
-          modules={[Pagination, Mousewheel, Navigation]}
+          navigation={true}
+          keyboard={{ enabled: true }}
+          modules={[Pagination, Mousewheel, Navigation, Keyboard, A11y]}
           className="h-[480px]"
         >
           {projectsSlides(4).map((slide, index) =>
-            <SwiperSlide className="hidden" key={`project_${4 * index}->${4 * index + 4}`} >
+            <SwiperSlide key={`slide-4-${index}`}>
               <ProjectGrid slide={slide} variant={4} />
             </SwiperSlide>
-          )
-          }
+          )}
         </Swiper>
       </div>
       {/* for medium devices */}
@@ -51,19 +48,19 @@ export default function ProjectsSlider() {
           slidesPerView={2}
           spaceBetween={10}
           pagination={{
-            clickable: true
+            clickable: true,
+            dynamicBullets: true
           }}
-          mousewheel={true}
-          modules={[Pagination, Mousewheel]}
+          keyboard={{ enabled: true }}
+          modules={[Pagination, Keyboard, A11y]}
           className="h-[210px] md:h-[245px] lg:h-[300px]"
         >
           {projectsSlides(1).map((slide, index) =>
-            <SwiperSlide className="hidden" key={`project_${4 * index}->${4 * index + 4}`} >
+            <SwiperSlide key={`slide-2-${index}`}>
               <ProjectGrid slide={slide} variant={1} />
             </SwiperSlide>
-          )
-          }
-        </Swiper >
+          )}
+        </Swiper>
       </div>
       {/* for small devices */}
       <div className="hidden max-sm:flex">
@@ -71,19 +68,19 @@ export default function ProjectsSlider() {
           slidesPerView={1}
           spaceBetween={10}
           pagination={{
-            clickable: true
+            clickable: true,
+            dynamicBullets: true
           }}
-          mousewheel={true}
-          modules={[Pagination, Mousewheel]}
-          className="h-full"
+          keyboard={{ enabled: true }}
+          modules={[Pagination, Keyboard, A11y]}
+          className="h-full pb-8"
         >
           {projectsSlides(1).map((slide, index) =>
-            <SwiperSlide className="hidden" key={`project_${4 * index}->${4 * index + 4}`} >
+            <SwiperSlide key={`slide-1-${index}`}>
               <ProjectGrid slide={slide} variant={1} />
             </SwiperSlide>
-          )
-          }
-        </Swiper >
+          )}
+        </Swiper>
       </div>
     </motion.div>
   )

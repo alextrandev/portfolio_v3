@@ -1,5 +1,6 @@
 import Particles, { ParticlesProvider } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
+import { useReducedMotion } from "framer-motion";
 
 // init callback must be stable across the app lifecycle, so keep it at module scope
 const particlesInit = async (engine) => {
@@ -14,7 +15,7 @@ const particlesOptions = {
       value: ''
     },
   },
-  fpsLimit: 120,
+  fpsLimit: 60,
   interactivity: {
     events: {
       onClick: {
@@ -53,7 +54,7 @@ const particlesOptions = {
       width: 1
     },
     collisions: {
-      enable: true,
+      enable: false,
     },
     move: {
       direction: 'none',
@@ -85,6 +86,10 @@ const particlesOptions = {
 };
 
 export default function ParticlesContainer() {
+  // indefinitely-moving particles violate WCAG 2.2.2 for reduced-motion users
+  const shouldReduceMotion = useReducedMotion();
+  if (shouldReduceMotion) return null;
+
   return (
     <ParticlesProvider init={particlesInit}>
       <Particles
