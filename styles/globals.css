@@ -38,6 +38,12 @@
   Swiper overrides must stay unlayered: swiper's own CSS is unlayered,
   and rules inside @layer would lose to it in the cascade.
 */
+.swiper {
+  /* Swiper reads its arrow/bullet colors from these variables */
+  --swiper-navigation-color: #f13024;
+  --swiper-pagination-color: #f13024;
+}
+
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets
   .swiper-pagination-bullet {
@@ -50,7 +56,6 @@
 
 .swiper-button-next:after,
 .swiper-button-prev:after,
-.swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
   color: #f13024;
 }
@@ -60,7 +65,8 @@
     @apply bg-secondary overflow-hidden leading-relaxed;
   }
   .page {
-    @apply w-full h-screen overflow-hidden;
+    /* dvh so iOS dynamic toolbars don't clip the bottom of the page */
+    @apply w-full h-screen h-dvh overflow-hidden;
   }
   .h1 {
     @apply text-[35px] leading-tight md:text-[60px] md:leading-[1.3] mb-8 font-semibold;
@@ -79,13 +85,25 @@
     @apply w-full h-[52px] rounded-lg pl-6;
   }
   .input::first-letter {
-  @apply capitalize
+    @apply capitalize;
   }
   .input,
   .textarea {
-    @apply bg-transparent outline-hidden focus:ring-1 focus:ring-accent border border-white/20 placeholder:text-white/30 placeholder:font-light;
+    /* border >= 3:1 and placeholder >= 4.5:1 contrast against the page background */
+    @apply bg-transparent outline-hidden focus:ring-1 focus:ring-accent border border-white/40 placeholder:text-white/60 placeholder:font-light;
   }
   .textarea {
     @apply w-full h-[100px] md:h-[180px] p-6 rounded-lg resize-none;
+  }
+}
+
+/* stop infinite CSS animations (pulse, spin) for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

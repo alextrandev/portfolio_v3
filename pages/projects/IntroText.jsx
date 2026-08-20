@@ -3,8 +3,8 @@ import { fadeIn } from '../../lib/motionVariants';
 
 export default function IntroText() {
   return (
-    <div className='text-center flex xl:w-[30vw] flex-col lg:text-left mb-4 xl:mb-0'>
-      <motion.h2
+    <div className='text-center flex xl:w-[35%] flex-col lg:text-left mb-4 xl:mb-0'>
+      <motion.h1
         variants={fadeIn('down', 0.6)}
         initial="hidden"
         animate="show"
@@ -13,7 +13,7 @@ export default function IntroText() {
       >
         My projects
         <span className='text-accent'> .</span>
-      </motion.h2>
+      </motion.h1>
       <motion.p
         variants={fadeIn('down', 0.2)}
         initial="hidden"

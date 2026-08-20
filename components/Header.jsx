@@ -17,9 +17,9 @@ export default function Header() {
               priority={true}
               className="max-sm:w-10 pointer-events-none select-none group-hover:scale-110"
             />
-            <div className="hidden xl:flex xl:flex-col max-sm:flex max-sm:flex-row max-sm:gap-2 group-hover:text-accent transition-all duration-300">
-              <h1 className="h2 text-xl p-0 -mb-2">Alex Tran</h1>
-              <p className="p-0 m-0 max-sm:text-xl">portfolio</p>
+            <div className="flex flex-row gap-2 xl:flex-col xl:gap-0 group-hover:text-accent transition-all duration-300">
+              <span className="h2 text-xl p-0 mb-0 xl:-mb-2">Alex Tran</span>
+              <p className="p-0 m-0 text-xl xl:text-base">portfolio</p>
             </div>
           </Link>
           {/* Social links */}

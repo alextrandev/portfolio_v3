@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../lib/motionVariants';
 import { aboutData } from '../../lib/aboutData';
-import Image from "next/image";
 import InfoBlockIcon from './InfoBlockIcon';
 import LoadingScreen from '../../components/LoadingScreen';
 
-export default function InfoBlockContent({ index }) {
-  if (index === undefined || !aboutData) {
+export default function InfoBlockContent({ index = 0 }) {
+  if (!aboutData?.[index]) {
     return <LoadingScreen />
   }
 
@@ -18,36 +17,25 @@ export default function InfoBlockContent({ index }) {
           initial="hidden"
           animate="show"
           exit="hidden"
-          key={`${itemIndex}_${item.title}`}
+          key={item.title + itemIndex}
           className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60"
         >
           {/* section title */}
           <p className="font-light">{item.title}</p>
           {/* bold text */}
-          <p className="font-bold text-accent">{item.bold}</p>
-          {/* a seperation dash, only for bigger devices */}
-          <div className='hidden md:flex'>-</div>
+          <p className="font-bold text-accent-light">{item.bold}</p>
+          {/* a separation dash, only for bigger devices */}
+          {item.year && <div aria-hidden="true" className='hidden md:flex'>-</div>}
           {/* year range */}
           <p>{item.year}</p>
           {/* icons */}
-          <div className="flex">
+          <ul className="flex list-none">
             {item.icons?.map(icon =>
               <InfoBlockIcon key={icon.text} icon={icon} />
             )}
-          </div>
+          </ul>
         </motion.div>
       )}
-      {/* This div together with overflow-scroll are to fix a problem of the nav bar cover the content of this page on shorter mobile screen
-      - It will offset the main content with a height equal to the nav bar height */}
-      <div className='offset-div h-[5.2rem] min-h-[5.2rem] md:hidden'>
-        <Image
-          width={83.2}
-          height={83.2}
-          alt="Offset image"
-          src={"/logo.svg"}
-          className='opacity-0'
-        />
-      </div>
     </div>
   )
 }

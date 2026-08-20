@@ -1,23 +1,25 @@
-import LoadingScreen from "../../components/LoadingScreen"
-
 export default function InfoBlockIcon({ icon }) {
-  if (!icon) {
-    return <LoadingScreen />
-  }
+  if (!icon) return null;
 
   return (
-    <div className="group px-2 relative">
-      <div className="text-2xl text-white group-hover:text-accent group-hover:scale-125 transition-all duration-300">
+    // tabIndex makes the tooltip keyboard-reachable; the aria-label names the otherwise-unlabeled SVG
+    <li
+      className="group px-2 relative focus-visible:outline focus-visible:outline-accent rounded-sm"
+      tabIndex={0}
+      role="img"
+      aria-label={icon.text}
+    >
+      <div aria-hidden="true" className="text-2xl text-white group-hover:text-accent group-hover:scale-125 transition-all duration-300">
         {icon.icon}
       </div>
-      {/* hover tooltip */}
-      <div className='absolute top-full mt-5 left-1/2 -translate-x-1/2 hidden xl:group-hover:flex focus:flex active:flex z-10'>
+      {/* hover/focus tooltip */}
+      <div aria-hidden="true" className='absolute top-full mt-5 left-1/2 -translate-x-1/2 hidden xl:group-hover:flex xl:group-focus-within:flex z-10'>
         <div className='bg-white relative p-1.5 rounded-sm'>
           <p className="text-xs font-semibold text-black">{icon.text}</p>
           {/* decorative triangle */}
-          <div className='border-solid border-b-8 border-x-transparent border-x-[6px] border-t-0 absolute -top-2.5 left-1/2  -translate-x-1/2'></div>
+          <div className='border-solid border-b-8 border-x-transparent border-x-[6px] border-t-0 absolute -top-2.5 left-1/2 -translate-x-1/2'></div>
         </div>
       </div>
-    </div>
+    </li>
   )
 }

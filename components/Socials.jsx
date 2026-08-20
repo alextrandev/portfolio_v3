@@ -5,7 +5,7 @@ import SocialIcon from './SocialIcon';
 // social icons bar
 export default function Socials() {
   return (
-    <div className="flex text-xl items-center max-sm:text-2xl">
+    <div className="flex flex-wrap justify-center text-xl items-center max-sm:text-2xl">
       {socialsData.map((data) =>
         <SocialIcon
           key={data.url}

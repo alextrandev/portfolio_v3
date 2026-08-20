@@ -7,10 +7,10 @@ export default function Avatar() {
         src={'/avatar.webp'}
         width={737}
         height={678}
-        alt="Avatar image"
-        className="translate-z-0 w-full h-full brightness-75 contrast-150"
+        alt="Portrait of Alex Tran"
+        priority
+        className="translate-z-0 w-full h-auto brightness-75 contrast-150"
       />
-
     </div>
   )
 }
