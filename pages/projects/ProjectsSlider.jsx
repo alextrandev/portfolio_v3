@@ -62,25 +62,11 @@ export default function ProjectsSlider() {
           )}
         </Swiper>
       </div>
-      {/* for small devices */}
-      <div className="hidden max-sm:flex">
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={10}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true
-          }}
-          keyboard={{ enabled: true }}
-          modules={[Pagination, Keyboard, A11y]}
-          className="h-full pb-8"
-        >
-          {projectsSlides(1).map((slide, index) =>
-            <SwiperSlide key={`slide-1-${index}`}>
-              <ProjectGrid slide={slide} variant={1} />
-            </SwiperSlide>
-          )}
-        </Swiper>
+      {/* for small devices: a vertical stack the page scrolls through */}
+      <div className="hidden max-sm:flex flex-col gap-y-6">
+        {projectsSlides(1).map((slide, index) =>
+          <ProjectGrid key={`stack-1-${index}`} slide={slide} variant={1} />
+        )}
       </div>
     </motion.div>
   )

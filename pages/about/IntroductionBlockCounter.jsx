@@ -12,12 +12,12 @@ export default function IntroductionBlockCounter() {
       exit="hidden"
       className='mb-8 md:mb-3 xl:mb-0 relative z-10'
     >
-      <div className="grid grid-cols-2 gap-y-6 md:flex md:flex-1 xl:gap-x-6">
+      <div className="flex flex-1 xl:gap-x-6">
         {/* single counter */}
         {statistic.map((stat) =>
           <div
             key={stat.text}
-            className="relative flex md:flex-1 flex-col xl:block items-center after:hidden md:after:block after:w-px after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0 last:after:w-0"
+            className="relative flex flex-1 flex-col xl:block items-center after:block after:w-px after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0 last:after:w-0"
           >
             <p className='text-lg xl:text-2xl font-extrabold text-accent-light xl:mb-1'>
               <CountUp start={0} end={stat.number} duration={5} />

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { FaApple, FaGlobe, FaGooglePlay } from "react-icons/fa";
 
-// classes shared by every overlay row: slide up into view on hover/focus, always visible below sm
-const reveal = "translate-y-52 max-sm:translate-y-0 group-hover:translate-y-0 group-focus-within:translate-y-0 transition-all duration-300";
+// classes shared by every overlay row: slide up into view on hover/focus;
+// below sm there is no hover, so `active` (set by tapping the card) reveals it
+const revealFor = (active) =>
+  `translate-y-52 ${active ? 'max-sm:translate-y-0' : ''} group-hover:translate-y-0 group-focus-within:translate-y-0 transition-all duration-300`;
 
 // store platform -> logo + label for the app store links
 const storeMeta = {
@@ -10,8 +12,9 @@ const storeMeta = {
   android: { Icon: FaGooglePlay, label: 'Google Play' },
 };
 
-export default function ProjectSlideOverlay({ project, variant }) {
+export default function ProjectSlideOverlay({ project, variant, active }) {
   if (!project) return null;
+  const reveal = revealFor(active);
 
   return (
     <div className={`absolute flex items-center text-center ${variant === 4 ? '' : 'sm:max-md:scale-75'}`}>

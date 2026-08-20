@@ -13,7 +13,9 @@ export default function About() {
         description={aboutText.seoDescription}
       />
       {/* main container */}
-      <div className='container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6'>
+      {/* h-full only on xl: forcing it while the page scrolls makes overflowing
+          content escape the padding box and hide behind the bottom nav */}
+      <div className='container mx-auto xl:h-full flex flex-col items-center xl:flex-row gap-x-6'>
         {/* intro block with a header, some text and a counter component */}
         <IntroductionBlock />
         {/* info block with multiple sections */}
