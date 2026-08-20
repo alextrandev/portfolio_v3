@@ -33,7 +33,7 @@ export default function ProjectGrid({ slide, variant }) {
               priority
             />
             {/* a gradient overlay background, show when tap or hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#3c14b5] to-[#e838cc] opacity-0 group-hover:opacity-90 transition-all duration-700"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-transparent via-[#3c14b5] to-[#e838cc] opacity-0 group-hover:opacity-90 transition-all duration-700"></div>
             {/* an overlay with gradient background and info, show when tap or hover */}
             <ProjectSlideOverlay project={project} />
           </div>

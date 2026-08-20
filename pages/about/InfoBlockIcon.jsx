@@ -12,7 +12,7 @@ export default function InfoBlockIcon({ icon }) {
       </div>
       {/* hover tooltip */}
       <div className='absolute top-full mt-5 left-1/2 -translate-x-1/2 hidden xl:group-hover:flex focus:flex active:flex z-10'>
-        <div className='bg-white relative p-1.5 rounded'>
+        <div className='bg-white relative p-1.5 rounded-sm'>
           <p className="text-xs font-semibold text-black">{icon.text}</p>
           {/* decorative triangle */}
           <div className='border-solid border-b-8 border-x-transparent border-x-[6px] border-t-0 absolute -top-2.5 left-1/2  -translate-x-1/2'></div>

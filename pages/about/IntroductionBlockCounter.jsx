@@ -17,7 +17,7 @@ export default function IntroductionBlockCounter() {
         {statistic.map((stat) =>
           <div
             key={`${stat.index}_${stat.text}`}
-            className="relative flex flex-1 flex-col xl:block items-center after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0 last:after:w-0"
+            className="relative flex flex-1 flex-col xl:block items-center after:w-px after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0 last:after:w-0"
           >
             <h3 className='text-lg xl:text-2xl font-extrabold text-accent xl:mb-1'>
               <CountUp start={0} end={stat.number} duration={5} />

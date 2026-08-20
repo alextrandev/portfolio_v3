@@ -45,7 +45,7 @@ export default function Nav() {
       <div
         className="
           flex w-full items-center justify-between h-[80px]
-           px-10 py-8 bg-white/10 backdrop-blur-sm text-3xl 
+           px-10 py-8 bg-white/10 backdrop-blur-xs text-3xl 
           xl:flex-col xl:justify-center xl:text-xl xl:rounded-full 
           xl:px-0 xl:h-max md:px-40 
         "

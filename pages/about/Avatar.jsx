@@ -9,7 +9,7 @@ export default function Avatar() {
       initial="hidden"
       animate="show"
       exit="hidden"
-      className='hidden xl:flex absolute bottom-0 -left-[120px]'
+      className='hidden xl:flex absolute bottom-0 left-[-120px]'
     >
       <div className="hidden xl:flex xl:max-w-none pointer-events-none select-none">
         <Image

@@ -11,11 +11,11 @@ export default function ProjectSlideOverlay({ project }) {
     <div className="absolute flex items-center text-center">
       <div className="flex flex-col items-center gap-2 p-2 text-[13px] tracking-[0.2em]">
         {/* title */}
-        <div className="text-xl font-bold text-accent translate-y-52 group-hover:-translate-y-0 transition-all duration-300">
+        <div className="text-xl font-bold text-accent translate-y-52 group-hover:translate-y-0 transition-all duration-300">
           {project.title}
         </div>
         {/* tech stack */}
-        <div className="flex gap-1 translate-y-52 group-hover:-translate-y-0 transition-all duration-300 delay-100">
+        <div className="flex gap-1 translate-y-52 group-hover:translate-y-0 transition-all duration-300 delay-100">
           {project.techStack?.map((tech) =>
             <p
               key={tech}
@@ -26,13 +26,13 @@ export default function ProjectSlideOverlay({ project }) {
           )}
         </div>
         {/* description */}
-        <p className="leading-4 translate-y-52 group-hover:-translate-y-0 transition-all duration-300 delay-150">{project.description}</p>
+        <p className="leading-4 translate-y-52 group-hover:translate-y-0 transition-all duration-300 delay-150">{project.description}</p>
         {/* links */}
         <div>
           {project.links?.map((link) =>
             <Link
               key={link.title}
-              className="flex translate-y-52 group-hover:-translate-y-0 transition-all duration-300 delay-200"
+              className="flex translate-y-52 group-hover:translate-y-0 transition-all duration-300 delay-200"
               href={link.url}
               target="_blank"
             >

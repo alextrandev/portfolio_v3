@@ -3,7 +3,7 @@ import React from 'react'
 export default function NavLinkTooltip({ link }) {
   return (
     <div className='absolute pr-14 right-0 hidden xl:group-hover:flex'>
-      <div className='bg-white relative flex text-primary items-center p-1.5 rounded'>
+      <div className='bg-white relative flex text-primary items-center p-1.5 rounded-sm'>
         <div className='text-xs leading-none font-semibold capitalize'>
           {link.name}
         </div>
