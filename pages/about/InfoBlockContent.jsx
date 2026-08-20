@@ -10,7 +10,7 @@ export default function InfoBlockContent({ index = 0 }) {
   }
 
   return (
-    <div className="xl:py-6 flex flex-col gap-y-4 items-center xl:items-start pb-5">
+    <div className="xl:py-6 flex flex-col gap-y-4 items-center xl:items-start pb-5 xl:pr-16">
       {aboutData[index].info.map((item, itemIndex) =>
         <motion.div
           variants={fadeIn('left', 0.1 + itemIndex / 5)}
@@ -20,14 +20,15 @@ export default function InfoBlockContent({ index = 0 }) {
           key={item.title + itemIndex}
           className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60"
         >
-          {/* section title */}
-          <p className="font-light">{item.title}</p>
-          {/* bold text */}
-          <p className="font-bold text-accent-light">{item.bold}</p>
-          {/* a separation dash, only for bigger devices */}
-          {item.year && <div aria-hidden="true" className='hidden md:flex'>-</div>}
-          {/* year range */}
-          <p>{item.year}</p>
+          {/* entry text flows as one wrapping line on md+, stacks on mobile */}
+          <p>
+            <span className="block md:inline font-light">{item.title}</span>
+            {item.bold &&
+              <span className="block md:inline font-bold text-accent-light"> {item.bold}</span>
+            }
+            {item.year && <span aria-hidden="true" className="hidden md:inline"> - </span>}
+            {item.year && <span className="block md:inline whitespace-nowrap">{item.year}</span>}
+          </p>
           {/* icons */}
           <ul className="flex list-none">
             {item.icons?.map(icon =>

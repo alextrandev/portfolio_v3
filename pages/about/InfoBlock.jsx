@@ -6,7 +6,9 @@ export default function InfoBlock() {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className='flex flex-col w-full xl:max-w-[48%] min-h-[340px]'>
+    // xl:min-h matches the tallest tab (skills) so the vertically-centered
+    // block—and with it the tab nav—doesn't shift when switching tabs
+    <div className='flex flex-col w-full xl:max-w-[48%] min-h-[340px] xl:min-h-[470px]'>
       {/* section navigation bar */}
       <InfoBlockNav index={index} setIndex={setIndex} />
       {/* show the content of the selected section */}

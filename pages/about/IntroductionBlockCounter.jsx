@@ -10,7 +10,7 @@ export default function IntroductionBlockCounter() {
       initial="hidden"
       animate="show"
       exit="hidden"
-      className='mb-8 md:mb-3 xl:mb-0'
+      className='mb-8 md:mb-3 xl:mb-0 relative z-10'
     >
       <div className="grid grid-cols-2 gap-y-6 md:flex md:flex-1 xl:gap-x-6">
         {/* single counter */}
