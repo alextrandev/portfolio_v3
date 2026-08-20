@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Mousewheel, Navigation } from "swiper";
+import { Pagination, Mousewheel, Navigation } from "swiper/modules";
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../lib/motionVariants';
 import projectsSlides from '../../lib/projectsData';
