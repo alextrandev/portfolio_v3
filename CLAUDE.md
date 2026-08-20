@@ -29,6 +29,17 @@ Personal portfolio site (alextran.dev) built with Next.js 16 (Pages Router), pla
 
 **Styling:** Tailwind CSS 4. The entry point is `styles/globals.css` (`@import 'tailwindcss'`), which still loads the legacy theme from `tailwind.config.js` via `@config` — brand colors `primary`/`secondary`/`accent`, custom background-image utilities (`bg-site`, `bg-explosion`, etc.), custom breakpoints (`xl` is 1200px). The 15px `container` padding is restored via an `@utility` block in globals.css. Swiper CSS overrides in globals.css must stay outside `@layer` (Swiper's own CSS is unlayered and would win otherwise).
 
+## Conventions & gotchas
+
+- Every route under `pages/` renders `<Seo title description>` (`components/Seo.jsx`) — include it in any new page.
+- `text-accent` (#F13024) fails WCAG AA for normal-size text on the grey pages (`bg-primary/30` over `bg-secondary`); use `text-accent-light` for small accent text there, `text-accent` only for large headings.
+- Swiper arrow/bullet colors come from `--swiper-navigation-color`/`--swiper-pagination-color` on `.swiper` in globals.css — plain overrides on `.swiper-button-*:after` lose to Swiper's unlayered CSS.
+- `Transition.jsx` panels are z-[61..63] on purpose: nav/header are z-50 and the curtain must cover them.
+- Contact inputs inherit the 16px base font — never set a smaller input font-size or iOS zooms on focus.
+- The project-card overlay is always visible below `sm` by design (hover-only made project links unreachable on touch).
+- `ProjectsSlider.jsx` renders three breakpoint-specific Swipers simultaneously (CSS-hidden); don't add `priority` to thumbnails or all instances eager-load.
+- The `http://alextrandev.infinityfreeapp.com/...` links in `lib/projectsData.js` are intentionally http — the host blocks bots, so https couldn't be verified.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
