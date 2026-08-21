@@ -20,7 +20,7 @@ Personal portfolio site (alextran.dev) built with Next.js 16 (Pages Router), pla
 
 ## Architecture
 
-**Content lives in `lib/`, not in components.** ALL user-facing copy is data: page text, headings, nav labels and form strings live in `lib/siteText.js`; projects, about-page skills/experience and social links live in `lib/projectsData.js`, `lib/aboutData.js`, and `lib/socialsData.js` — components just render these. Never hardcode visible text in a component. Project thumbnails go in `public/thumbnails/` and are 1200×676 webp. Project entries support optional `stores: [{platform: 'ios'|'android', url}]`, rendered as App Store / Google Play logo links. Shared Framer Motion variants (e.g. the `fadeIn(direction, delay)` factory) live in `lib/motionVariants.js`.
+**Content lives in `lib/`, not in components.** ALL user-facing copy is data: page text, headings, nav labels and form strings live in `lib/siteText.js`; projects, about-page skills/experience and social links live in `lib/projectsData.js`, `lib/aboutData.js`, and `lib/socialsData.js` — components just render these. Never hardcode visible text in a component. Project thumbnails go in `public/thumbnails/` and are 1200×676 webp. To make one: screenshot the live site at a 1200×676 viewport (retina outputs 2400×1352, which downscales cleanly), then `sips -z 676 1200 in.png --out tmp.png && cwebp -q 82 tmp.png -o public/thumbnails/<name>-thumbnail.webp`. Project entries support optional `stores: [{platform: 'ios'|'android', url}]`, rendered as App Store / Google Play logo links. Shared Framer Motion variants (e.g. the `fadeIn(direction, delay)` factory) live in `lib/motionVariants.js`.
 
 **Page structure:** Each route is a directory under `pages/` containing `index.jsx` plus that page's private components co-located in the same folder (e.g. `pages/about/InfoBlock.jsx`, `pages/contact/Form.jsx`). Components shared across pages live in the top-level `components/` directory. Note the co-located component files technically become routes too (Pages Router behavior) — this is the accepted convention here.
 
@@ -42,6 +42,7 @@ Personal portfolio site (alextran.dev) built with Next.js 16 (Pages Router), pla
 - `ProjectsSlider.jsx` renders two breakpoint-specific Swipers plus a mobile vertical stack simultaneously (CSS-hidden); don't add `priority` to thumbnails or all instances eager-load.
 - Prefer canonical Tailwind v4 utilities over arbitrary values where an equivalent exists (`w-300` not `w-[1200px]`, `z-8` not `z-[8]`, `mask-[...]` not `[mask-image:...]`) — arbitrary forms get rewritten by formatting passes.
 - The `http://alextrandev.infinityfreeapp.com/...` links in `lib/projectsData.js` are intentionally http — the host blocks bots, so https couldn't be verified.
+- Replacing an image in `public/` under the same filename: the dev server keeps serving the old optimized version — deleting `.next/cache/images` is NOT enough (Turbopack persists it and the running server re-writes it from memory). Kill the dev server, `rm -rf .next`, restart. Verify with `curl "localhost:3000/_next/image?url=..."` (check `X-Nextjs-Cache: MISS`), not the browser, which has its own cache.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
