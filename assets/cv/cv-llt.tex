@@ -15,6 +15,7 @@
 \usepackage{hyperref}
 \usepackage{fontawesome5}
 \usepackage{microtype}
+\usepackage{ifthen}
 
 % Simple CV macros
 \newcommand{\cvitem}[2]{%
@@ -26,9 +27,13 @@
   \hrule\vspace{0.8em}
 }
 
+% Language selection: set to "en" or "vi"
+\newcommand{\lang}{en}
+\ifthenelse{\equal{\lang}{en}}{\input{strings_en.tex}}{\input{strings_vi.tex}}
+
 % Document metadata
 \title{Curriculum Vitae}
-\author{Alex Tran}
+\author{\CVName}
 \date{}
 
 \begin{document}
@@ -36,11 +41,11 @@
 
 % Header: name + contact + photo
 \begin{minipage}[t]{0.68\textwidth}
-  {\Huge\bfseries Alex Tran}\par
+  {\Huge\bfseries \CVName}\par
   \vspace{0.6em}
-  Helsinki, Finland \quad | \quad \href{mailto:tranduclong092@gmail.com}{tranduclong092@gmail.com} \quad | \quad \href{https://github.com/alextrandev}{github.com/alextrandev} \quad | \quad \href{https://alextran.dev/}{alextran.dev}
+  \CVLocation \quad | \CVContact
   \\[0.8em]
-  Software engineer at One Lion Company with 6+ years of experience building mobile apps, APIs, and cloud platforms. Skilled in AI-driven development workflows, full-stack engineering, CI/CD and product delivery.
+  \CVSummary
 \end{minipage}\hfill
 \begin{minipage}[t]{0.28\textwidth}
   \raggedleft
@@ -48,12 +53,23 @@
   \includegraphics[width=0.9\linewidth]{avatar.png}
 \end{minipage}
 
-% Input section files (each file was converted to simple sections)
-\input{employment.tex}
-\input{skills.tex}
-\input{projects.tex}
-\input{education.tex}
-\input{others.tex}
-\input{about.tex}
+% Sections (content comes from localized files)
+\cvsection{\EmploymentSectionTitle}
+\EmploymentEntries
+
+\cvsection{\SkillsSectionTitle}
+\SkillsEntries
+
+\cvsection{\ProjectsSectionTitle}
+\ProjectsEntries
+
+\cvsection{\EducationSectionTitle}
+\EducationEntries
+
+\cvsection{\OthersSectionTitle}
+\OthersEntries
+
+\cvsection{\AboutSectionTitle}
+\AboutEntries
 
 \end{document}
