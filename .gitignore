@@ -53,3 +53,8 @@ next-env.d.ts
 /assets/cv/*.toc
 # temporary LaTeX files
 /assets/cv/*~
+# LaTeX helper files (latexmk, etc.)
+*.cut
+*.fdb
+*.fdb_latexmk
+*.fls
