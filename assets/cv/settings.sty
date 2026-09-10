@@ -119,6 +119,10 @@
 
 \RequirePackage{pgffor}
 \newcommand{\mynames}[1]{\def\my@namelist{#1}}
+% Compatibility: some translation files use `\cvitem{date}{content}` style.
+% Provide a simple mapping to the `\entry*` style used in these templates.
+\providecommand{\cvitem}[2]{\entry*[#1]%
+  #2}
 \newtoggle{boldname}
 \renewcommand*{\mkbibnamefamily}[1]{%
   \global\togglefalse{boldname}%

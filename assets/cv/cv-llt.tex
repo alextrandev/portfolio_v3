@@ -40,19 +40,15 @@
 
 
 \leftheader{%
-  {\LARGE\bfseries\sffamily Alex Tran - Software Engineer}
+  {\LARGE\bfseries\sffamily \CVName{} - Software Engineer}
 
-  \makefield{\faMapMarker[regular]}{\texttt{Helsinki, Finland}}
-  % \makefield{\faUser}{\texttt{Continuous work permit (A permit)}}
-  
-  \makefield{\faEnvelope}{\href{mailto:tranduclong092@gmail.com}{\texttt{tranduclong092@gmail.com}}}
-  \makefield{\faGithub}{\href{https://github.com/alextrandev}{\texttt{ Github profile}}}
-  
-  \makefield{\faLinkedin}{\href{https://www.linkedin.com/in/tduclong/}{\texttt{LinkedIn profile}}}
-  \makefield{\faGlobe}{\href{https://alextran.dev/}{\texttt{My portfolio}}}{\par}
+  \makefield{\faMapMarker[regular]}{\texttt{\CVLocation}}
+
+  \makefield{\faEnvelope}{\CVContact}
+
   {\bfseries\sffamily \phantom{iiii}}\par
   {\bfseries\sffamily About me: }
-  \par A software engineer based in Helsinki with 5+ years experience, flexible skills set and great attitude. Skills: Full-stack development, Web design, CI/CD, Testing, Web \& Domain hosting.
+  \par \CVSummary
 }
 
 \rightheader{~}
@@ -62,6 +58,13 @@
 \end{fullonly}
 
 \title{Curriculum Vitae}
+% Language selection: default to English. The Makefile replaces this
+% line for the XeLaTeX build to set `vi` when producing the Vietnamese PDF.
+\newcommand{\lang}{en}
+% Load the strings file for the selected language (e.g. strings_en.tex)
+\input{strings_\lang.tex}
+
+% (Section wrappers are applied inside the individual section files.)
 
 \begin{document}
 

@@ -60,3 +60,4 @@ next-env.d.ts
 *.fls
 *.bbl-SAVE-ERROR
 *.bcf-SAVE-ERROR
+*.manual.tex
