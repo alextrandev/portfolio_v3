@@ -58,3 +58,5 @@ next-env.d.ts
 *.fdb
 *.fdb_latexmk
 *.fls
+*.bbl-SAVE-ERROR
+*.bcf-SAVE-ERROR
