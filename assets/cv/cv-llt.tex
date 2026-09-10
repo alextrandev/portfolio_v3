@@ -8,49 +8,23 @@
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage{graphicx}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=1cm, bottom=1cm]{geometry}
 \usepackage{parskip}
 \usepackage{xcolor}
-\usepackage{tikz}
 \usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
 \usepackage{microtype}
 \usepackage{ifthen}
 
-% Provide fallbacks expected by settings.sty when used without the original class
-\makeatletter
-\providecommand\@almosttextwidth{\textwidth}
-\newcommand{\headerscale}[1]{}
-\newcommand{\rubricfont}[1]{\def\@rubricfont{#1}}
-\newcommand{\subrubricfont}[1]{\def\@subrubricfont{#1}}
-\newcommand{\subrubricalignment}[1]{}
-\newcommand{\keyalignment}[1]{}
-\newcommand{\rubricalignment}[1]{}
-\newcommand{\prefix}[1]{}
-% sensible defaults
-\def\@rubricfont{\large\bfseries\sffamily}
-\def\@subrubricfont{\large\bfseries\sffamily}
-% define lengths expected by settings.sty
-\newlength{\rubricspace}
-\newlength{\rubricafterspace}
-\newlength{\subrubricspace}
-\newlength{\subrubricbeforespace}
-\setlength{\rubricspace}{1ex}
-\setlength{\rubricafterspace}{1ex}
-\setlength{\subrubricspace}{1ex}
-\setlength{\subrubricbeforespace}{1ex}
-\makeatother
-
-% Include styling helpers (rubric headers, markers) from settings.sty
-\usepackage{settings}
-
 % Simple CV macros
-% cvitem shows role/details on left and date on right
 \newcommand{\cvitem}[2]{%
   \vspace{0.6em}\noindent\textbf{#2}\hfill\textit{#1}\par
 }
 
-% Use makerubrichead from settings.sty for stylish section headers
 \newcommand{\cvsection}[1]{%
-  \makerubrichead{#1}
+  \vspace{1.2em}\noindent{\Large\textbf{#1}}\par\vspace{0.4em}
+  \hrule\vspace{0.8em}
 }
 
 % Language selection: set to "en" or "vi"
@@ -69,16 +43,13 @@
 \begin{minipage}[t]{0.68\textwidth}
   {\Huge\bfseries \CVName}\par
   \vspace{0.6em}
-  % use makefield from settings.sty to show icons consistently
-  \makefield{\faMapMarker[regular]}{\texttt{\CVLocation}} \\
-  \makefield{\faEnvelope[regular]}{\href{mailto:tranduclong092@gmail.com}{\texttt{tranduclong092@gmail.com}}} \makefield{\faGithub[brands]}{\href{https://github.com/alextrandev}{\texttt{github.com/alextrandev}}} \makefield{\faGlobe[regular]}{\href{https://alextran.dev/}{\texttt{alextran.dev}}}
+  \CVLocation \quad | \CVContact
   \\[0.8em]
   \CVSummary
 \end{minipage}\hfill
 \begin{minipage}[t]{0.28\textwidth}
   \raggedleft
   \vspace{-1.0em}
-  % Keep a simple photo box; photoscale/\photo macros were provided by the old class so use includegraphics
   \includegraphics[width=0.9\linewidth]{avatar.png}
 \end{minipage}
 
