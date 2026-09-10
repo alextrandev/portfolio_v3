@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%
+% Alex Tran (tranduclong092@gmail.com)
+%
+\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+\PassOptionsToPackage{style=ieee,sorting=ydnt,uniquename=init,defernumbers=true}{biblatex}
+\usepackage{settings}
+\DefineBibliographyStrings{english}{url={\textsc{url}}}
+\mynames{Tran/Alex\bibnamedelima}
+
+% Change the fonts if you want
+\ifxetexorluatex % If you're using XeLaTeX or LuaLaTeX
+  \usepackage{fontspec} 
+  %% You can use \setmainfont etc; I'm just using these font packages here because they provide OpenType fonts for use by XeLaTeX/LuaLaTeX anyway
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage[medium,bold]{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\else % If you're using pdfLaTeX or latex
+  \usepackage[T1]{fontenc}
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\fi
+
+% Change the page margins if you want
+\geometry{left=1.5cm,right=1.5cm,top=1cm,bottom=1cm}
+
+% Change the colours if you want
+% \definecolor{SwishLineColour}{HTML}{00FFFF}
+% \definecolor{MarkerColour}{HTML}{0000CC}
+
+% Change the item prefix marker if you want
+% \prefixmarker{$\diamond$}
+
+%% Photo is only shown if "fullonly" is included
+\includecomment{fullonly}
+% \excludecomment{fullonly}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\leftheader{%
+  {\LARGE\bfseries\sffamily Alex Tran - Software Engineer}
+
+  \makefield{\faMapMarker[regular]}{\texttt{Helsinki, Finland}}
+  % \makefield{\faUser}{\texttt{Continuous work permit (A permit)}}
+  
+  \makefield{\faEnvelope}{\href{mailto:tranduclong092@gmail.com}{\texttt{tranduclong092@gmail.com}}}
+  \makefield{\faGithub}{\href{https://github.com/alextrandev}{\texttt{ Github profile}}}
+  
+  \makefield{\faLinkedin}{\href{https://www.linkedin.com/in/tduclong/}{\texttt{LinkedIn profile}}}
+  \makefield{\faGlobe}{\href{https://alextran.dev/}{\texttt{My portfolio}}}{\par}
+  {\bfseries\sffamily \phantom{iiii}}\par
+  {\bfseries\sffamily About me: }
+  \par A software engineer based in Helsinki with 5+ years experience, flexible skills set and great attitude. Skills: Full-stack development, Web design, CI/CD, Testing, Web \& Domain hosting.
+}
+
+\rightheader{~}
+\begin{fullonly}
+\photo[r]{avatar.png}
+\photoscale{0.20}
+\end{fullonly}
+
+\title{Curriculum Vitae}
+
+\begin{document}
+
+\makeheaders[c]
+
+\makerubric{employment}
+\makerubric{skills}
+\makerubric{projects}
+\makerubric{education}
+\makerubric{others}
+
+\end{document}
