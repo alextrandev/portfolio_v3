@@ -21,8 +21,8 @@
   \usepackage[varqu,varl,scale=0.9]{zi4}
 \fi
 
-% Change the page margins if you want
-\geometry{left=1.5cm,right=1.5cm,top=1cm,bottom=1cm}
+% Change the page margins if you want (kept small for one-page fit)
+\geometry{left=1.2cm,right=1.2cm,top=0.8cm,bottom=0.8cm}
 
 % Change the colours if you want
 % \definecolor{SwishLineColour}{HTML}{00FFFF}
@@ -32,15 +32,15 @@
 % \prefixmarker{$\diamond$}
 
 %% Photo is only shown if "fullonly" is included
-\includecomment{fullonly}
-% \excludecomment{fullonly}
+% Exclude the photo to save space for one-page CV
+\excludecomment{fullonly}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \leftheader{%
-  {\LARGE\bfseries\sffamily \CVName{} - Software Engineer}
+  {\Large\bfseries\sffamily \CVName{} - Software Engineer}
 
   \makefield{\faMapMarker[regular]}{\texttt{\CVLocation}}
 

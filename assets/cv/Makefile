@@ -23,7 +23,7 @@ en:
 vi:
 	@echo "Building Vietnamese PDF (XeLaTeX)"
 	# Create a XeLaTeX-friendly source: replace inputenc/fontenc/babel[english] with fontspec + TeX Gyre Termes + babel[vietnamese]
-	perl -0777 -pe "s/\\usepackage\[utf8\]\{inputenc\}\\n\\usepackage\[T1\]\{fontenc\}\\n\\usepackage\[english\]\{babel\}/\\usepackage{fontspec}\\n\\setmainfont{TeX Gyre Termes}\\n\\usepackage[vietnamese]{babel}/s" $(SRC) > $(VI_XE_SRC)
+	perl -0777 -pe "s/\\usepackage\[utf8\]\{inputenc\}\\n\\usepackage\[T1\]\{fontenc\}\\n\\usepackage\[english\]\{babel\}/\\usepackage{fontspec}\\n\\setmainfont[Scale=0.92]{TeX Gyre Termes}\\n\\setsansfont[Scale=0.92]{Cabin}\\n\\usepackage[vietnamese]{babel}\\n\\AtBeginDocument{\\fontsize{9.5}{10.5}\\selectfont\\linespread{0.96}\\setlength{\\parskip}{0pt}}/s" $(SRC) > $(VI_XE_SRC)
 	# Remove any lines mentioning Cochineal so XeLaTeX doesn't try to load them
 	perl -ni -e 'print unless /cochineal/' $(VI_XE_SRC)
 	# Ensure language macro is set to vi in the XeLaTeX source

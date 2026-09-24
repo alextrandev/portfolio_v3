@@ -32,7 +32,7 @@
 
 \newcommand{\smallcaps}[1]{\textsc{\lowercase{#1}}}
 
-\RequirePackage[a4paper, hmargin=2.25cm, top=2cm, bottom=1cm]{geometry}
+\RequirePackage[a4paper, hmargin=1.2cm, top=0.8cm, bottom=0.8cm]{geometry}
 \RequirePackage{relsize}
 \RequirePackage[dvipsnames,svgnames]{xcolor}
 \RequirePackage{tikz}
@@ -75,13 +75,13 @@
   {}{}
 
 \headerscale{1}
-%\setlength{\headerspace}{6pt}
-\rubricfont{\large\bfseries\sffamily}
+% moderate header spacing for one-page fit
+\setlength{\headerspace}{4pt}
+\rubricfont{\normalsize\bfseries\sffamily}
 \setlength{\rubricspace}{1pt}
-%\setlength{\rubricafterspace}{-9pt}
-\setlength{\rubricafterspace}{-3pt}
-\setlength{\subrubricspace}{3pt}
-\setlength{\subrubricbeforespace}{4pt}
+\setlength{\rubricafterspace}{-4pt}
+\setlength{\subrubricspace}{2pt}
+\setlength{\subrubricbeforespace}{3pt}
 \def\@@rubrichead#1{%
   \begin{tikzpicture}[baseline]%\
   \shade[left color=SwishLineColour!60!white, right color=white] rectangle (\@almosttextwidth,2.5pt);
@@ -93,11 +93,18 @@
 \subrubricfont{\large\bfseries\sffamily}
 \subrubricalignment{l}
 
-\newcommand{\makefield}[2]{\makebox[1.5em]{\color{MarkerColour!80!black}#1} #2\hspace{2em}}
+\newcommand{\makefield}[2]{\makebox[1.5em][l]{\color{MarkerColour!80!black}#1} #2\hspace{1.2em}}
 
 \keyalignment{r}
 \rubricalignment{l}
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.05}
+% Slightly tighten line spacing but keep readable
+\linespread{0.98}
+
+% Ensure prefix markers line up with makefield width
+\prefix{%
+  \makebox[1.5em][l]{\color{MarkerColour!80!black}\@prefixmarker}\hspace{1.2em}%
+}
 \urlstyle{tt}
 
 \newcommand{\prefixmarker}[1]{\def\@prefixmarker{#1}}
@@ -119,6 +126,15 @@
 
 \RequirePackage{pgffor}
 \newcommand{\mynames}[1]{\def\my@namelist{#1}}
+% Reduce some spacing when using XeLaTeX/LuaLaTeX so translated output fits better
+\ifxetexorluatex
+  \rubricfont{\small\bfseries\sffamily}
+  \setlength{\rubricafterspace}{-6pt}
+  \setlength{\rubricspace}{0pt}
+  \setlength{\subrubricspace}{1pt}
+  \setlength{\subrubricbeforespace}{1pt}
+  \setlength{\bibitemsep}{1ex}
+\fi
 % Compatibility: some translation files use `\cvitem{date}{content}` style.
 % Provide a simple mapping to the `\entry*` style used in these templates.
 \providecommand{\cvitem}[2]{\entry*[#1]%
