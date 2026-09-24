@@ -93,7 +93,13 @@
 \subrubricfont{\large\bfseries\sffamily}
 \subrubricalignment{l}
 
-\newcommand{\makefield}[2]{\makebox[1.5em][l]{\color{MarkerColour!80!black}#1} #2\hspace{1.2em}}
+\ExplSyntaxOn
+\NewDocumentCommand{\makefield}{m g}{%
+  \IfNoValueTF{#2}
+    {\makebox[1.5em][l]{\color{MarkerColour!80!black}} #1\hspace{1.2em}}
+    {\makebox[1.5em][l]{\color{MarkerColour!80!black}#1} #2\hspace{1.2em}}%
+}
+\ExplSyntaxOff
 
 \keyalignment{r}
 \rubricalignment{l}
